@@ -17,6 +17,7 @@ router.get('/articles', async (req, res) => {
     
      
      return res.jsonOK(newArticle);
+     console.log();
  });
 
  module.exports = router;
