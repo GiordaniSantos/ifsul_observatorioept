@@ -16,8 +16,7 @@ router.get('/articles', async (req, res) => {
     });
     
      
-     return res.jsonOK(newArticle);
-     console.log();
+     return res.jsonOK(newArticle, 'Article created.');
  });
 
  module.exports = router;
