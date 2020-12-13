@@ -1,33 +1,25 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const Article = sequelize.define('Article', {
-        articleId: {
+    const Schedule = sequelize.define('Schedule', {
+        scheduleId: {
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
+         primaryKey: true,
         type: DataTypes.INTEGER,
         },
-        authors: {
+        date: {
             type: DataTypes.STRING,
             allowNull: true,
         },
-        title: {
+        description: {
             type: DataTypes.STRING,
             allowNull: true,
         },
-        year: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-        },
-        dissemination_vehicle:{
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
-        access_link:{
+        external_link: {
             type: DataTypes.STRING,
             allowNull: true,
         }
     }) 
 
-    return Article;
+    return Schedule;
 };

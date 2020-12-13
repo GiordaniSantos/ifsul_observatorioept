@@ -5,6 +5,8 @@ const response = require('./middlewares/response');
 const authController = require('./controllers/auth');
 
 const articleController = require('./controllers/articleController');
+const scheduleController = require('./controllers/scheduleController');
+
 
 const app = express();
 
@@ -19,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/auth', authController);
 
 app.use('/article' ,articleController);
+app.use('/schedule' ,scheduleController);
 
 app.get('/', (req, res)=>{
     return res.json('Api running...');
