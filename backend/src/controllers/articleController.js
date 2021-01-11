@@ -10,7 +10,7 @@ router.get('/', async (req, res) =>{
 
 router.get('/:id', async (req, res)=>{
     const { id } = req.params;
-    const article  = await Article.findOne({where: {articleId:id}});
+    const article  = await Article.findOne({where: {article_id:id}});
     if(!article) return res.jsonNotFound();
     return res.jsonOK(article);
 });
@@ -30,7 +30,7 @@ router.put('/:id', async (req, res) =>{
     const { body } = req;
     const fields = ['authors', 'title', 'year', 'dissemination_vehicle', 'access_link'];
 
-    const article  = await Article.findOne({where: {articleId:id}});
+    const article  = await Article.findOne({where: {article_id:id}});
     if(!article) return res.jsonNotFound();
     
     fields.map(fieldName=>{
@@ -45,7 +45,7 @@ router.put('/:id', async (req, res) =>{
 
 router.delete('/:id', async (req, res) =>{
     const { id } = req.params;
-    const article  = await Article.findOne({where: {articleId:id}});
+    const article  = await Article.findOne({where: {article_id:id}});
     if(!article) return res.jsonNotFound();
     await article.destroy();
     return res.jsonOK();

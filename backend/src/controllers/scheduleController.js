@@ -9,7 +9,7 @@ router.get('/', async (req, res) =>{
 
 router.get('/:id', async (req, res)=>{
     const { id } = req.params;
-    const schedule  = await Schedule.findOne({where: {scheduleId:id}});
+    const schedule  = await Schedule.findOne({where: {schedule_id:id}});
     if(!schedule) return res.jsonNotFound();
     return res.jsonOK(schedule);
 });
@@ -29,7 +29,7 @@ router.put('/:id', async (req, res) =>{
     const { body } = req;
     const fields = ['date', 'description', 'external_link'];
 
-    const schedule  = await Schedule.findOne({where: {scheduleId:id}});
+    const schedule  = await Schedule.findOne({where: {schedule_id:id}});
     if(!schedule) return res.jsonNotFound();
     
     fields.map(fieldName=>{
@@ -45,7 +45,7 @@ router.put('/:id', async (req, res) =>{
 
 router.delete('/:id', async (req, res) =>{
     const { id } = req.params;
-    const schedule  = await Schedule.findOne({where: {scheduleId:id}});
+    const schedule  = await Schedule.findOne({where: {schedule_id:id}});
     if(!schedule) return res.jsonNotFound();
     await schedule.destroy();
     return res.jsonOK();

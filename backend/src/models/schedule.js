@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
 
     const Schedule = sequelize.define('Schedule', {
-        scheduleId: {
+        schedule_id: {
         allowNull: false,
         autoIncrement: true,
          primaryKey: true,
