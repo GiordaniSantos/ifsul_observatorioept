@@ -16,11 +16,11 @@ module.exports = (sequelize, DataTypes) => {
             },
             email: {
                 type: DataTypes.STRING,
-                allowNull: true,
+                allowNull: false,
             },
             password: {
                 type: DataTypes.STRING(1234),
-                allowNull: true,
+                allowNull: false,
             },
             formation:{
                 type: DataTypes.STRING(1234),
@@ -38,7 +38,13 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: true,
             }
-    })
+    });
+
+    User.prototype.toJSON = function() {
+        const values = { ...this.get() };
+        delete values.password;
+        return values;
+    };
 
     return User;
 }
