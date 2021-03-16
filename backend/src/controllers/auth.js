@@ -1,18 +1,29 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const { User } = require('../models');
-const { userSignUp } = require('../validators/User')
-const { getMessage } = require('../helpers/validator')
+const { userSignUp, userSignIn } = require('../validators/User');
+const { getMessage } = require('../helpers/validator');
+const { generateJwt, generateRefreshJwt } = require('../helpers/jwt');  
 
 const router = express.Router();
 
 const saltRounds = 10;
 
-router.get('/sign-in', (req, res) => {
-    return res.json('Sign-in');
+router.post('/sign-in', userSignIn, async (req, res) => {
+    const { email, password } = req.body;
+    const account = await User.findOne({ where: { email }});
+    
+    //validando senha
+    const match = account ? bcrypt.compareSync(password, account.password) : null;
+    if(!match) return res.jsonBadRequest(null, getMessage('user.signin.invalid'));
+
+    const token = generateJwt({id: account.id});
+    const refreshToken = generateJwt({id: account.id});
+
+    return res.jsonOK(account,  getMessage('user.signin.sucess'), {token, refreshToken});
 });
 
-router.get('/sign-up', userSignUp, async (req, res) => {
+router.post('/sign-up', userSignUp, async (req, res) => {
 
     const { name, email, password } = req.body;
 
@@ -20,13 +31,15 @@ router.get('/sign-up', userSignUp, async (req, res) => {
 
 
     const account = await User.findOne({ where: { email }});
-
-    if ( account ) return res.jsonBadRequest(null, getMessage('user.signup.email_exists'))
+    if ( account ) return res.jsonBadRequest(null, getMessage('user.signup.email_exists'));
 
     const hash = bcrypt.hashSync(password, saltRounds);
     const newAccount = await User.create({ user_type, name, email, password: hash });
 
-    return res.jsonOK(newAccount, getMessage('user.signup.sucess'));
+    const token = generateJwt({id: newAccount.id});
+    const refreshToken = generateJwt({id: newAccount.id});
+
+    return res.jsonOK(newAccount, getMessage('user.signup.sucess'), { token, refreshToken });
 });
 
 module.exports = router;
