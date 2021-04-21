@@ -37,6 +37,11 @@ module.exports = (sequelize, DataTypes) => {
             link_curriculum:{
                 type: DataTypes.STRING,
                 allowNull: true,
+            },
+            jwtVersion: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                defaultValue: 0,
             }
     });
 
