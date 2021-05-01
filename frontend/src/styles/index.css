@@ -1,0 +1,20 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.bar{
+    background-color: rgb(68, 67, 67);
+    display: flex;
+    
+}
+
+.bar ul li{
+    display: inline;
+    margin-right: 16px;
+}
+
+.bar ul li a {
+    
+    text-decoration: none;
+    color: white;
+}
