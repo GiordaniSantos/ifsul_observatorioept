@@ -1,7 +1,8 @@
 const express = require('express');
+const cors = require('cors');
 const db = require('./models');
 const response = require('./middlewares/response');
-const checkJwt = require('./middlewares/jwt');
+//const checkJwt = require('./middlewares/jwt');
 
 const authController = require('./controllers/auth');
 
@@ -15,12 +16,13 @@ const searchGroupController = require('./controllers/searchGroupController');
 
 const app = express();
 
+
 app.use(response);
-app.use(checkJwt);
+//app.use(checkJwt);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+app.use(cors());
 
 // /auth/sign-in
 // /auth/sign-up
@@ -39,7 +41,7 @@ app.get('/', (req, res)=>{
 });
 
 db.sequelize.sync().then(() =>{
-    app.listen(3001, () => {
+    app.listen(3002, () => {
         console.log('listening on port 3001');
     });
 });
