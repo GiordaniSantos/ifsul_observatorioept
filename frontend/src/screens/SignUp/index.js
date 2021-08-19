@@ -2,17 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signUp } from './SignUpActions';
+import { getFormData } from '../../helpers/form';
 
 const SignUp = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-
-        const formData = new FormData(e.target);
-        const data = Object.fromEntries(formData);
-
-        console.log(data);
-        
+        const data = getFormData(e);   
         signUp(data);
     };
 

@@ -1,24 +1,24 @@
 import React from 'react';
 import { getFormData } from '../../../helpers/form';
 import { Link } from 'react-router-dom';
-import { newsCreate } from './NewsActions';
+import { articlesCreate } from './ArticlesActions';
 import { connect } from 'react-redux';
 
 
 
-const CreateNew = ()=> {
+const ArticleCreate = ()=> {
 
     const submitHandler = (e) => {
         e.preventDefault();
         const data = getFormData(e);   
-       newsCreate(data)
+        articlesCreate(data)
     }
 
     
 
     return(
         <div className="">
-        <h1>Crie uma noticia</h1>
+        <h1>Crie um artigo</h1>
         <div>
             <form onSubmit={submitHandler}>
                 <div className="">
@@ -30,11 +30,19 @@ const CreateNew = ()=> {
                     <input type="text" name="title" />
                 </div>
                 <div className="">
-                    <label for="descricao">Descrição</label>
-                    <textarea id="descricao" name="description" rows="5" cols="33"></textarea>
+                    <label>Ano</label>
+                    <input type="text" name="year" />
+                </div>
+                <div className="">
+                    <label>Veiculo de disseminação</label>
+                    <input type="text" name="dissemination_vehicle" />
+                </div>
+                <div className="">
+                    <label>Link de acesso</label>
+                    <input type="text" name="access_link" />
                 </div>
                 <div>
-                    <button>Enviar noticia</button>
+                    <button>Enviar artigo</button>
                 </div>
             </form>
             <div>
@@ -47,8 +55,8 @@ const CreateNew = ()=> {
 }
 
 const mapStateToProps = (state) => {
-    return { neww: state.neww };
+    return { article: state.article };
 };
 
 
-export default connect(mapStateToProps, {newsCreate})(CreateNew);
+export default connect(mapStateToProps, {articlesCreate})(ArticleCreate);

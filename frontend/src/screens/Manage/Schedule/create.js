@@ -1,40 +1,40 @@
 import React from 'react';
 import { getFormData } from '../../../helpers/form';
 import { Link } from 'react-router-dom';
-import { newsCreate } from './NewsActions';
 import { connect } from 'react-redux';
+import { scheduleCreate } from './ScheduleActions';
 
 
 
-const CreateNew = ()=> {
+const ScheduleCreate = ()=> {
 
     const submitHandler = (e) => {
         e.preventDefault();
         const data = getFormData(e);   
-       newsCreate(data)
+        scheduleCreate(data)
     }
 
     
 
     return(
         <div className="">
-        <h1>Crie uma noticia</h1>
+        <h1>Crie um evento</h1>
         <div>
             <form onSubmit={submitHandler}>
                 <div className="">
-                    <label>Autor</label>
-                    <input type="text" name="authors" />
+                    <label>Data do evento</label>
+                    <input type="text" name="date" />
                 </div>
                 <div className="">
-                    <label>Titulo</label>
-                    <input type="text" name="title" />
+                    <label>Descrição</label>
+                    <input type="text" name="description" />
                 </div>
                 <div className="">
-                    <label for="descricao">Descrição</label>
-                    <textarea id="descricao" name="description" rows="5" cols="33"></textarea>
+                    <label>Link de acesso</label>
+                    <input type="text" name="external_link" />
                 </div>
                 <div>
-                    <button>Enviar noticia</button>
+                    <button>Enviar agenda</button>
                 </div>
             </form>
             <div>
@@ -47,8 +47,8 @@ const CreateNew = ()=> {
 }
 
 const mapStateToProps = (state) => {
-    return { neww: state.neww };
+    return { schedule: state.schedule };
 };
 
 
-export default connect(mapStateToProps, {newsCreate})(CreateNew);
+export default connect(mapStateToProps, {scheduleCreate})(ScheduleCreate);
