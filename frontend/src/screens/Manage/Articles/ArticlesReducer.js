@@ -1,4 +1,4 @@
-import { ARTICLE_CREATE, ARTICLES_LIST } from '../Articles/ArticlesActions';
+import { ARTICLES_CREATE, ARTICLES_LIST } from '../Articles/ArticlesActions';
 
 const initialState = {
     article: null,
@@ -8,7 +8,7 @@ const initialState = {
 export default function (state = initialState, action) {
     const { type, payload } = action;
     switch(type) {
-        case ARTICLE_CREATE: {
+        case ARTICLES_CREATE: {
             const response = payload ? payload.data : null;
             const article = response ? response.data : null;
             return { ...state, article};

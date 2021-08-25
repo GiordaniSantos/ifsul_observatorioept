@@ -47,19 +47,20 @@ const NewsAdmin = ({newsList}) => {
                             </div>
                         </article>
                     </section>
+                    <Link to={`/Manage/News/edit/${newww.news_id}`}>
+                    Editar
+                    </Link>
                 </div>
             );
         }) : null}
+
+        <br></br>
          <div>
                 <Link to="/Manage/News/create">
                     Criar Noticia
                 </Link>
             </div>
-            <div>
-                <Link to="/Manage/News/create">
-                    Editar Noticia
-                </Link>
-            </div>
+          
         </div>
         
     );

@@ -6,6 +6,7 @@ import SignUp from './screens/SignUp';
 import News from './screens/Manage/News/index';
 import NewsAdmin from './screens/Manage/News/NewsAdmin';
 import NewCreate from './screens/Manage/News/create';
+import NewEdit from './screens/Manage/News/edit';
 import ArticlesAdmin from './screens/Manage/Articles/ArticlesAdmin';
 import ArticleCreate from './screens/Manage/Articles/create';
 import Articles from './screens/Manage/Articles';
@@ -55,6 +56,9 @@ const App = () => {
                 </Route>
                 <Route path="/Manage/News/create">
                     <NewCreate/>
+                </Route>
+                <Route path="/Manage/News/edit/:id">
+                    <NewEdit/>
                 </Route>
                 <Route path="/Manage/Articles/ArticlesAdmin">
                     <ArticlesAdmin/>

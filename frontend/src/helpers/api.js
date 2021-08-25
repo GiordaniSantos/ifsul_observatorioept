@@ -19,6 +19,17 @@ export const apiPost = (path, data = {}) => {
    
 };
 
+export const apiPut = (path, data = {}) => {
+    const url = getApiUrl(path);
+    const options = {
+        headers: getHeaders()
+    };
+
+    console.log("put",data)
+    return axios.put(url, data, options);
+   
+};
+
 export const apiGet = (path) => {
     const url = getApiUrl(path);
     const options = {

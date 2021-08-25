@@ -1,4 +1,4 @@
-import { NEWS_CREATE, NEWS_LIST } from './NewsActions';
+import { NEWS_CREATE, NEWS_LIST, NEW_GET, NEW_UPDATE } from './NewsActions';
 
 const initialState = {
     neww: null,
@@ -12,6 +12,17 @@ export default function (state = initialState, action) {
             const response = payload ? payload.data : null;
             const neww = response ? response.data : null;
             return { ...state, neww};
+        }
+        case NEW_UPDATE: {
+            const response = payload ? payload.data : null;
+            const neww = response ? response.data : null;
+            return { ...state, neww};
+        }
+        case NEW_GET: {
+            const response = payload ? payload.data : null;
+            const neww = response ? response.data : null;
+            
+            return {...state, neww};
         }
         case NEWS_LIST: {
             const response = payload ? payload.data : null;
