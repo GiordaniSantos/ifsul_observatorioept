@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { articlesList } from '../../Manage/Articles/ArticlesActions'; 
 
-const Articles = ({ articlesList}) => {
+const ArticlesAdmin = ({ articlesList}) => {
    const [articles, setArticles] = useState([]);
 
     useEffect(()=>{
@@ -45,7 +45,12 @@ const Articles = ({ articlesList}) => {
         }) : null}
             
         
-            
+            <br></br>
+         <div>
+                <Link to="/Manage/Articles/create">
+                    Criar Artigo
+                </Link>
+            </div>
         </div>
         
     );
@@ -55,4 +60,4 @@ const mapStateToProps = (state) => {
     return { articles: state.articles };
 };
 
-export default connect(mapStateToProps, {articlesList})(Articles);
+export default connect(mapStateToProps, {articlesList})(ArticlesAdmin);

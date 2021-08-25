@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { projectList } from '../Projects/ProjectActions';
 
-const Project = ({ projectList}) => {
+const ProjectsAdmin = ({ projectList}) => {
    const [projects, setProjects] = useState([]);
 
     useEffect(()=>{
@@ -46,7 +46,12 @@ const Project = ({ projectList}) => {
         }) : null}
             
         
-      
+            
+         <div>
+                <Link to="/Manage/Projects/create">
+                    Criar um projeto
+                </Link>
+            </div>
         </div>
         
     );
@@ -56,4 +61,4 @@ const mapStateToProps = (state) => {
     return { projects: state.projects };
 };
 
-export default connect(mapStateToProps, {projectList})(Project);
+export default connect(mapStateToProps, {projectList})(ProjectsAdmin);

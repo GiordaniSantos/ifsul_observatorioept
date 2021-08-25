@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { newsList } from '../../Manage/News/NewsActions'; 
 
-const News = ({newsList}) => {
+const NewsAdmin = ({newsList}) => {
 
 
     const [news, setNews] = useState([]);
@@ -50,7 +50,16 @@ const News = ({newsList}) => {
                 </div>
             );
         }) : null}
-
+         <div>
+                <Link to="/Manage/News/create">
+                    Criar Noticia
+                </Link>
+            </div>
+            <div>
+                <Link to="/Manage/News/create">
+                    Editar Noticia
+                </Link>
+            </div>
         </div>
         
     );
@@ -60,4 +69,4 @@ const mapStateToProps = (state) => {
     return {news: state.news};
 }
 
-export default connect(mapStateToProps, {newsList})(News);
+export default connect(mapStateToProps, {newsList})(NewsAdmin);

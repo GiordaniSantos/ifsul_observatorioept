@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { schedulesList } from '../Schedule/ScheduleActions';
 
-const Schedule = ({ schedulesList}) => {
+const SchedulesAdmin = ({ schedulesList}) => {
    const [schedules, setSchedules] = useState([]);
 
     useEffect(()=>{
@@ -44,6 +44,13 @@ const Schedule = ({ schedulesList}) => {
             );
         }) : null}
             
+        <br></br>
+            
+         <div>
+                <Link to="/Manage/Schedule/create">
+                    Criar um evento
+                </Link>
+            </div>
         </div>
         
     );
@@ -53,4 +60,4 @@ const mapStateToProps = (state) => {
     return { schedules: state.schedules };
 };
 
-export default connect(mapStateToProps, {schedulesList})(Schedule);
+export default connect(mapStateToProps, {schedulesList})(SchedulesAdmin);
