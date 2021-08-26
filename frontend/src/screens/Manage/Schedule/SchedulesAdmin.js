@@ -39,6 +39,11 @@ const SchedulesAdmin = ({ schedulesList}) => {
                                 <a class="read-more" href={schedule.external_link} >Link da publicação</a>
                             </div>
                         </article>
+                        <div>
+                            <Link to={`/Manage/Schedule/edit/${schedule.schedule_id}`}>
+                                Editar um evento
+                            </Link>
+                         </div>
                     </section>
                 </div>
             );
@@ -51,6 +56,12 @@ const SchedulesAdmin = ({ schedulesList}) => {
                     Criar um evento
                 </Link>
             </div>
+
+            <br/>
+            <div>
+                <Link to='/management'><button>Voltar</button></Link>
+            </div>
+
         </div>
         
     );

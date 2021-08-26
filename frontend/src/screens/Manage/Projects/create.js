@@ -42,7 +42,7 @@ const CreateProject = ()=> {
                 </div>
             </form>
             <div>
-                <Link to='/'><button>Cancelar</button></Link>
+                <Link to='/Manage/Projects/ProjectsAdmin'><button>Cancelar</button></Link>
             </div>
         </div>
     </div>

@@ -39,7 +39,13 @@ const ArticlesAdmin = ({ articlesList}) => {
                                 <a class="read-more" href={article.access_link}>Link da publicação</a>
                             </div>
                         </article>
+                        <div>
+                        <Link to={`/Manage/Articles/edit/${article.article_id}`}>
+                            Editar Artigo
+                        </Link>
+                        </div>
                     </section>
+                    
                 </div>
             );
         }) : null}
@@ -51,7 +57,14 @@ const ArticlesAdmin = ({ articlesList}) => {
                     Criar Artigo
                 </Link>
             </div>
+
+            <br/>
+            <div>
+                <Link to='/management'><button>Voltar</button></Link>
+            </div>
+
         </div>
+        
         
     );
 };

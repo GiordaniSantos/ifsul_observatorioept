@@ -40,6 +40,9 @@ const ProjectsAdmin = ({ projectList}) => {
                 <h5>Financiador(es): {project.financiers}</h5>
 
                         </article>
+                            <Link to={`/Manage/Projects/edit/${project.project_id}`}>
+                                Editar um projeto
+                             </Link>
                     </section>
                 </div>
             );
@@ -52,6 +55,12 @@ const ProjectsAdmin = ({ projectList}) => {
                     Criar um projeto
                 </Link>
             </div>
+
+            <br/>
+            <div>
+                <Link to='/management'><button>Voltar</button></Link>
+            </div>
+
         </div>
         
     );

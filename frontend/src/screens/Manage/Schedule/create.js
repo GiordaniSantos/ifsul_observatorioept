@@ -38,7 +38,7 @@ const ScheduleCreate = ()=> {
                 </div>
             </form>
             <div>
-                <Link to='/'><button>Cancelar</button></Link>
+                <Link to='/Manage/Schedule/SchedulesAdmin'><button>Cancelar</button></Link>
             </div>
         </div>
     </div>

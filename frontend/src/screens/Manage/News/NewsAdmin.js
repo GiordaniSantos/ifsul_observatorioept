@@ -60,7 +60,12 @@ const NewsAdmin = ({newsList}) => {
                     Criar Noticia
                 </Link>
             </div>
-          
+            
+          <br/>
+            <div>
+                <Link to='/management'><button>Voltar</button></Link>
+            </div>
+
         </div>
         
     );

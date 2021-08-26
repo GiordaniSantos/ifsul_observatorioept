@@ -46,7 +46,7 @@ const ArticleCreate = ()=> {
                 </div>
             </form>
             <div>
-                <Link to='/'><button>Cancelar</button></Link>
+                <Link to='/Manage/Articles/ArticlesAdmin'><button>Cancelar</button></Link>
             </div>
         </div>
     </div>

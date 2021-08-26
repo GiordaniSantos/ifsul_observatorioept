@@ -38,7 +38,7 @@ const CreateNew = ()=> {
                 </div>
             </form>
             <div>
-                <Link to='/'><button>Cancelar</button></Link>
+                <Link to='/Manage/News/NewsAdmin'><button>Cancelar</button></Link>
             </div>
         </div>
     </div>

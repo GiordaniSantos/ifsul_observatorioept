@@ -17,6 +17,9 @@ import Project from './screens/Manage/Projects/index';
 import CreateProject from './screens/Manage/Projects/create';
 import Management from './screens/Manage/Management/index';
 import ProjectsAdmin from './screens/Manage/Projects/ProjectsAdmin';
+import ArticleEdit from './screens/Manage/Articles/edit';
+import ScheduleEdit from './screens/Manage/Schedule/edit';
+import ProjectEdit from './screens/Manage/Projects/edit';
 
 const App = () => {
     return (
@@ -60,6 +63,9 @@ const App = () => {
                 <Route path="/Manage/News/edit/:id">
                     <NewEdit/>
                 </Route>
+                <Route path="/Manage/Articles/edit/:id">
+                    <ArticleEdit/>
+                </Route>
                 <Route path="/Manage/Articles/ArticlesAdmin">
                     <ArticlesAdmin/>
                 </Route>
@@ -71,6 +77,12 @@ const App = () => {
                 </Route>
                 <Route path="/Manage/Schedule/create">
                     <ScheduleCreate/>
+                </Route>
+                <Route path="/Manage/Schedule/edit/:id">
+                    <ScheduleEdit/>
+                </Route>
+                <Route path="/Manage/Projects/edit/:id">
+                    <ProjectEdit/>
                 </Route>
                 <Route path="/Manage/Projects/ProjectsAdmin">
                     <ProjectsAdmin/>
