@@ -26,21 +26,23 @@ const App = () => {
         <BrowserRouter>
         
         <div>
+            <div className="bar">
+                <div>
+                Observatório da Educação Profissional e Tecnológica (EPT) do IFSul
+                </div>
             
-            <nav className="bar">
-                <img src="/media/Logo.png" alt="Logo"/>
-                <ul>
-                    
-                    <li><Link to="/news">Noticias</Link> </li>
-                    <li><Link to="/articles">Artigos</Link> </li>
-                    <li><Link to="/projects">Projetos</Link> </li>
-                    <li><Link to="/schedule">Agenda</Link></li>
-                    <li><Link to="/sign-in">Login</Link> </li>
-                    <li><Link to="/sign-up">Criar Conta</Link></li>
-                    <li><Link to="/management">Admin</Link></li>
-
-                </ul>
-            </nav>
+                <nav>
+                    <ul>
+                        <li><Link to="/news">Noticias</Link> </li>
+                        <li><Link to="/articles">Artigos</Link> </li>
+                        <li><Link to="/projects">Projetos</Link> </li>
+                        <li><Link to="/schedule">Agenda</Link></li>
+                        <li><Link to="/sign-in">Login</Link> </li>
+                        <li><Link to="/sign-up">Criar Conta</Link></li>
+                        <li><Link to="/management">Admin</Link></li>
+                    </ul>
+                </nav>
+            </div>
             <Switch>
                 <Route path="/news">
                     <News/>

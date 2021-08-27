@@ -20,9 +20,9 @@ const Articles = ({ articlesList}) => {
     //  }, [articlesList]);
 
     return(
-        <div>
+        <div  id="artigos">
             <div>
-                <h1>Artigos</h1>
+                
             </div>
 
             {articles && articles.length 
@@ -32,12 +32,13 @@ const Articles = ({ articlesList}) => {
                 <div key={article.article_id}>
                     <section>
                         <article>
-                        <h3>{article.title}</h3>
+                            <div class="artigo-titulo">{article.title}</div>
                             <div>
-                                Autores: {article.authors} <br/>
+                                {article.authors} <br/>
                                 {article.dissemination_vehicle} ({article.year}) <br/>
-                                <a class="read-more" href={article.access_link}>Link da publicação</a>
+                                <a class="read-more" target="_blank" href={article.access_link}>Link da publicação</a>
                             </div>
+                            <div class="artigo-serparador"></div>
                         </article>
                     </section>
                 </div>
