@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { newsList } from '../../Manage/News/NewsActions'; 
+import moment from 'moment'
+import 'moment/locale/pt-br';
 
 const News = ({newsList}) => {
-
 
     const [news, setNews] = useState([]);
 
@@ -21,30 +22,26 @@ const News = ({newsList}) => {
     //     articlesList()
     //  }, [articlesList]);
 
-
-
- //   useEffect(()=>{
- //      newsList();
- //   }, [newsList]);
-    
+    //   useEffect(()=>{
+    //      newsList();
+    //   }, [newsList]);
     
     return(
-        <div>
+        <div id="noticias">
             <div>
-                <h1>Noticias</h1>
             </div>        
         
             {news && news.length 
             ? news.map( (newww) => {
-                
+
                 return (
                     <div key={newww.news_id}>
                     <section>
                         <article>
-                        <h3>{newww.title}</h3>
-                            <div>
-                <p>{newww.description}</p>
-                            </div>
+                            <div class="noticia-titulo">{newww.title}</div>
+                            <div class="noticia-data">{moment(newww.date).format('LL')}</div>
+                            <div class="noticia-descricao">{newww.description.substr(0,300) + "..."}</div>
+                            <div class="noticia-leiamais"><a class="link link--dia" href="#">Leia mais...</a></div>
                         </article>
                     </section>
                 </div>

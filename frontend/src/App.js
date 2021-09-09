@@ -28,20 +28,30 @@ const App = () => {
         <div>
             <div className="bar">
                 <div>
-                Observatório da Educação Profissional e Tecnológica (EPT) do IFSul
+                    <table>
+                        <tr>
+                            <td>
+                                <img class="logo" src="Logo.png" alt="Observatório da Educação Profissional e Tecnológica (EPT) do IFSul" />
+                                <p>
+                                Observatório da Educação <br></br>
+                                Profissional e Tecnológica (EPT)<br></br> do IFSul</p>
+                            </td>
+                            <td>
+                                <nav>
+                                    <ul>
+                                        <li><Link class="link link--metis" to="/news">Notícias</Link></li>
+                                        <li><Link class="link link--metis" to="/articles">Artigos</Link> </li>
+                                        <li><Link class="link link--metis" to="/projects">Projetos</Link> </li>
+                                        <li><Link class="link link--metis" to="/schedule">Agenda</Link></li>
+                                        <li><Link class="link link--metis" to="/sign-in">Login</Link> </li>
+                                        <li><Link class="link link--metis" to="/sign-up">Criar Conta</Link></li>
+                                        <li><Link class="link link--metis" to="/management">Admin</Link></li>
+                                    </ul>
+                                </nav>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-            
-                <nav>
-                    <ul>
-                        <li><Link to="/news">Noticias</Link> </li>
-                        <li><Link to="/articles">Artigos</Link> </li>
-                        <li><Link to="/projects">Projetos</Link> </li>
-                        <li><Link to="/schedule">Agenda</Link></li>
-                        <li><Link to="/sign-in">Login</Link> </li>
-                        <li><Link to="/sign-up">Criar Conta</Link></li>
-                        <li><Link to="/management">Admin</Link></li>
-                    </ul>
-                </nav>
             </div>
             <Switch>
                 <Route path="/news">

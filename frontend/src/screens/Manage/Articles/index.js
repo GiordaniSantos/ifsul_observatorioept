@@ -33,10 +33,12 @@ const Articles = ({ articlesList}) => {
                     <section>
                         <article>
                             <div class="artigo-titulo">{article.title}</div>
-                            <div>
+                            <div class="artigo-autores">
                                 {article.authors} <br/>
                                 {article.dissemination_vehicle} ({article.year}) <br/>
-                                <a class="read-more" target="_blank" href={article.access_link}>Link da publicação</a>
+                            </div>
+                            <div class="artigo-link">
+                                <a class="link link--dia" target="_blank" href={article.access_link}>Acessar a publicação</a>
                             </div>
                             <div class="artigo-serparador"></div>
                         </article>
