@@ -31,7 +31,9 @@ const App = () => {
                     <table>
                         <tr>
                             <td>
-                                <img class="logo" src="Logo.png" alt="Observatório da Educação Profissional e Tecnológica (EPT) do IFSul" />
+                                <a href="/">
+                                    <img class="logo" src="Logo.png" alt="Observatório da Educação Profissional e Tecnológica (EPT) do IFSul" />
+                                </a>
                                 <p>
                                 Observatório da Educação <br></br>
                                 Profissional e Tecnológica (EPT)<br></br> do IFSul</p>
@@ -39,6 +41,7 @@ const App = () => {
                             <td>
                                 <nav>
                                     <ul>
+                                        <li><Link class="link link--metis" to="/">Sobre</Link></li>
                                         <li><Link class="link link--metis" to="/news">Notícias</Link></li>
                                         <li><Link class="link link--metis" to="/articles">Artigos</Link> </li>
                                         <li><Link class="link link--metis" to="/projects">Projetos</Link> </li>
@@ -112,9 +115,47 @@ const App = () => {
                     <Management/>
                 </Route>
                 <Route path="/">
-                    <h1>Home Page</h1>
+
+                    <div id="home">
+
+                        <img src="Logo completo.png" class="logo" alt="Logotipo completo do Observatório da EPT IFsul" />
+
+                        <p>O Observatório da Educação Profissional e Tecnológica (EPT) IFSul tem sua origem em demandas que tematizam a história e os rumos das políticas educacionais em EPT, trata-se de um projeto que conta com o apoio da Fapergs e da Seção Sinasefe IFSul. </p>
+                        <p>O Observatório possui como objetivo promover atividades de estudo e pesquisa em interlocução com a comunidade acadêmica sobre a legislação educacional contemporânea e seus desdobramentos para os Institutos Federais, além de mapear pesquisas e práticas pedagógicas, constituindo um repositório sobre EPT.</p>
+                        <p>O Observatório da Educação Profissional e Tecnológica (EPT) do IFSul está também em parceria com a Pró-reitoria de Ensino com ações que estimulam a reflexão sobre as diretrizes da educação profissional e tecnológica e seu impacto nos institutos federais.  </p>
+
+                    </div>
+                    
                 </Route>
             </Switch>
+
+
+            <div id="rodape">
+                <div class="row">
+                    <div class="column">
+                        Acompanhe nossas redes:
+                        <ul>
+                            <li><a class="link link--dia" href="https://www.instagram.com/observatorioifsul/" target="_blank">Instagram</a></li>
+                            <li><a class="link link--dia" href="#" target="_blank">Facebook</a></li>
+                            <li><a class="link link--dia" href="https://www.youtube.com/c/Observat%C3%B3rioEPTIFSul" target="_blank">YouTube</a></li>
+                        </ul>                            
+                    </div>
+
+                    <div class="column">
+                        Institucional e parcerias:
+                        <ul>
+                            <li><a class="link link--dia" href="http://www.ifsul.edu.br/" target="_blank">IFSul</a></li>
+                            <li><a class="link link--dia" href="https://www.sinasefeifsul.org.br/" target="_blank">Sinasefe IFSul</a></li>
+                            <li><a class="link link--dia" href="https://www.ufrgs.br/observatoriodoensinomedio-rs/" target="_blank">Observatório do Ensino Médio – RS</a></li>
+                        </ul>
+                    </div>
+                </div> 
+
+                <div class="row">
+                    <p>Observatório EPT do IFSul. 2021. Todos os direitos reservados.</p>
+                </div>
+            </div>
+
         </div>
         </BrowserRouter>
     );
