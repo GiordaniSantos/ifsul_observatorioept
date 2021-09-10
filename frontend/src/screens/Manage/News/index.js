@@ -27,7 +27,7 @@ const News = ({newsList}) => {
     //   }, [newsList]);
     
     return(
-        <div id="noticias">
+        <div id="noticias" class="container flex flex-wrap">
             <div>
             </div>        
         
@@ -35,17 +35,19 @@ const News = ({newsList}) => {
             ? news.map( (newww) => {
 
                 return (
-                    <div key={newww.news_id}>
-                    <section>
-                        <article>
-                            <div class="noticia-titulo">{newww.title}</div>
-                            <div class="noticia-data">{moment(newww.date).format('LL')}</div>
-                            <div class="noticia-descricao">{newww.description.substr(0,300) + "..."}</div>
-                            <div class="noticia-leiamais"><a class="link link--dia" href="#">Leia mais...</a></div>
-                        </article>
-                    </section>
-                </div>
-            );
+                    <div key={newww.news_id} class="noticia-card">
+                        <section >
+                            <article >
+                                <div class="noticia-titulo">
+                                    <a class="link link--dia" href="#">{newww.title}</a>
+                                </div>
+                                <div class="noticia-data">{moment(newww.date).format('LL')}</div>
+                                <div class="noticia-descricao">{newww.description.substr(0,300) + "..."}</div>
+                                <div class="noticia-leiamais"><a class="link link--dia" href="#">Leia mais...</a></div>
+                            </article>
+                        </section>
+                    </div>
+                );
         }) : null}
 
         </div>
