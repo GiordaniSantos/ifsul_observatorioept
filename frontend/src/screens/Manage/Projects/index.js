@@ -20,11 +20,8 @@ const Project = ({ projectList}) => {
     //  }, [articlesList]);
 
     return(
-        <div id="projetos">
-            <div>
-                
-            </div>
-
+        <div id="conteudo">
+            
             {projects && projects.length 
             ? projects.map( (project) => {
                 // console.log(article)
@@ -32,7 +29,7 @@ const Project = ({ projectList}) => {
                 <div key={project.project_id}>
                     <section>
                         <article>
-                            <div class="projeto-titulo">{project.title}</div>
+                            <div class="titulo1">{project.title}</div>
                             <div><p>{project.description}</p></div>
                             <div><b>Integrantes: </b> {project.members}</div>
                             <div><b>Financiador(es): </b> {project.financiers}</div>

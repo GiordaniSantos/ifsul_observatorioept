@@ -20,11 +20,8 @@ const Articles = ({ articlesList}) => {
     //  }, [articlesList]);
 
     return(
-        <div  id="artigos">
-            <div>
-                
-            </div>
-
+        <div id="conteudo">
+            
             {articles && articles.length 
             ? articles.map( (article) => {
                 // console.log(article)
@@ -32,7 +29,7 @@ const Articles = ({ articlesList}) => {
                 <div key={article.article_id}>
                     <section>
                         <article>
-                            <div class="artigo-titulo">{article.title}</div>
+                            <div class="titulo1">{article.title}</div>
                             <div class="artigo-autores">
                                 {article.authors} <br/>
                                 {article.dissemination_vehicle} ({article.year}) <br/>

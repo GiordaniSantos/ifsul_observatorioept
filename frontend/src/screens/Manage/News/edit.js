@@ -20,23 +20,18 @@ const NewEdit = ({neww, newGet, newUpdate})=> {
  };
 
     return(
-        <div className="">
-        <h1>Editar noticia</h1>
-        <div>
-            <form onSubmit={submitHandler}>
-            <FormGroup label="Autor" name="authors" data={neww} type="text" />
-            <FormGroup label="Titulo" name="title" data={neww} type="text" />
-            <FormGroup label="Descrição" name="description" data={neww} type="textarea" />
-            
-                <div>
-                    <button>Editar noticia</button>
-                </div>
-            </form>
+        <div id="conteudo" class="boxsimples">
+            <div class="titulo1">Editar noticia</div>
             <div>
-                <Link to='/Manage/News/NewsAdmin'><button>Voltar</button></Link>
+                <form onSubmit={submitHandler}>
+                    <FormGroup label="Autor" name="authors" data={neww} type="text" />
+                    <FormGroup label="Título" name="title" data={neww} type="text" />
+                    <FormGroup label="Descrição" name="description" data={neww} type="textarea" />
+
+                    <input type="submit" value="Editar noticia" />
+                </form>
             </div>
-        </div>
-    </div>
+     </div>
        
     );
 }

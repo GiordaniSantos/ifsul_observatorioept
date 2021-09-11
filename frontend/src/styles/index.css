@@ -65,7 +65,7 @@ body{
     color: #343434;
 }
 
-#projetos, #artigos, #noticias {
+#conteudo {
     width: 900px;
     text-align: left;
     margin-left: auto;
@@ -74,7 +74,7 @@ body{
     font-size: 16px;
 }
 
-#projetos section, #artigos section, #noticias section
+#conteudo section, .boxsimples
 {
     padding: 20px;
     /*box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;*/
@@ -83,7 +83,7 @@ body{
     margin-bottom: 10px;
 }
 
-.projeto-titulo, .artigo-titulo, .noticia-titulo {
+.titulo1 {
     font-size: 25px;
     margin-bottom: 10px;
     color: #a97883;
@@ -117,6 +117,43 @@ body{
     margin-right: 2%;
 }
 
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 12px;
+    resize: none;
+  }
+
 /*
 .projeto-separador, .artigo-serparador {
     margin: 30px 0px;
@@ -129,9 +166,6 @@ body{
 EFEITOS
 
 */
-
-
-/*  ==============   */
 
 .link {
     cursor: pointer;
@@ -212,4 +246,38 @@ EFEITOS
     transform: scale3d(1, 1, 1);
 }
 
-/* botoes redes sociais */
+.link--eirene {
+    font-family: 'Open-sans', sans-serif;
+    font-weight: bold;
+    color: #a97883;
+}
+
+.link--eirene::before {
+    height: 7px;
+    border-radius: 20px;
+    transform: scale3d(1, 1, 1);
+    transition: transform 0.2s, opacity 0.2s;
+    transition-timing-function: cubic-bezier(0.2, 0.57, 0.67, 1.53);
+}
+
+.link--eirene:hover::before {
+    transition-timing-function: cubic-bezier(0.8, 0, 0.1, 1);
+    transition-duration: 0.4s;
+    opacity: 1;
+    transform: scale3d(1.2, 0.1, 1);
+}
+
+.link--eirene span {
+    transform: translate3d(0, -4px, 0);
+    display: inline-block;
+    transition: transform 0.2s 0.05s cubic-bezier(0.2, 0.57, 0.67, 1.53);
+}
+
+.link--eirene:hover span {
+    transform: translate3d(0, 0, 0);
+    transition-timing-function: cubic-bezier(0.8, 0, 0.1, 1);
+    transition-duration: 0.4s;
+    transition-delay: 0s;
+}
+
+

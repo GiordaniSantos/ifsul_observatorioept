@@ -17,36 +17,26 @@ const CreateProject = ()=> {
     
 
     return(
-        <div className="">
-        <h1>Crie um projeto</h1>
-        <div>
-            <form onSubmit={submitHandler}>
-                <div className="">
-                    <label>Titulo</label>
+        <div id="conteudo" class="boxsimples">
+            <div class="titulo1">Crie um projeto</div>
+            <div>
+                <form onSubmit={submitHandler}>
+                    <label>Título</label>
                     <input type="text" name="title" />
-                </div>
-                <div className="">
+                    
                     <label for="descricao">Descrição</label>
                     <textarea id="descricao" name="description" rows="5" cols="33"></textarea>
-                </div>
-                <div className="">
+                    
                     <label>Membros</label>
                     <input type="text" name="members" />
-                </div>
-                <div className="">
+                    
                     <label>Financiadores</label>
                     <input type="text" name="financiers" />
-                </div>
-                <div>
-                    <button>Enviar noticia</button>
-                </div>
-            </form>
-            <div>
-                <Link to='/Manage/Projects/ProjectsAdmin'><button>Cancelar</button></Link>
+                    
+                    <input type="submit" value="Registrar este projeto" />
+                </form>
             </div>
         </div>
-    </div>
-       
     );
 }
 

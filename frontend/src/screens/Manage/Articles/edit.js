@@ -20,26 +20,25 @@ const ArticleEdit = ({article, articleGet, articleUpdate})=> {
  };
 
     return(
-        <div className="">
-        <h1>Editar artigo</h1>
-        <div>
-            <form onSubmit={submitHandler}>
-            <FormGroup label="Autor" name="authors" data={article} type="text" />
-            <FormGroup label="Titulo" name="title" data={article} type="text" />
-            <FormGroup label="Ano" name="year" data={article} type="text" />
-            <FormGroup label="Veiculo de disseminação" name="dissemination_vehicle" data={article} type="text" />
-            <FormGroup label="Link de acesso" name="access_link" data={article} type="text" />
-            
-
-                <div>
-                    <button>Editar artigo</button>
-                </div>
-            </form>
+        <div id="conteudo" class="boxsimples">
+            <div class="titulo1">Editar artigo</div>
             <div>
-                <Link to='/Manage/Articles/ArticlesAdmin'><button>Voltar</button></Link>
+                <form onSubmit={submitHandler}>
+                    <FormGroup label="Autor" name="authors" data={article} type="text" />
+                    <FormGroup label="Título" name="title" data={article} type="text" />
+                    <FormGroup label="Ano" name="year" data={article} type="text" />
+                    <FormGroup label="Nome do veículo" name="dissemination_vehicle" data={article} type="text" />
+                    <FormGroup label="Link de acesso" name="access_link" data={article} type="text" />
+
+                    <div>
+                        <input type="submit" value="Salvar alterações" />
+                    </div>
+                </form>
+                <div>
+                    <Link to='/Manage/Articles/ArticlesAdmin'><button>Voltar</button></Link>
+                </div>
             </div>
         </div>
-    </div>
        
     );
 }

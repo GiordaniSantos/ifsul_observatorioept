@@ -20,46 +20,45 @@ const ProjectsAdmin = ({ projectList}) => {
     //  }, [articlesList]);
 
     return(
-        <div>
+        <div id="conteudo">
             <div>
-                <h1>Projetos</h1>
+                <div class="titulo1">
+                    <div class="row">
+                        <div class="column">Gerenciamento dos projetos</div>
+                        <div class="column">
+                            <Link class="link link--metis" to="/Manage/Projects/create">Criar um projeto</Link>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
+            
 
             {projects && projects.length 
             ? projects.map( (project) => {
                 // console.log(article)
                 return (
-                <div key={project.project_id}>
-                    <section>
+                    <div key={project.project_id}>
+                        <section>
                         <article>
-                        <h2>{project.title}</h2>
-                            <div>
-                        <p>{project.description}</p>
-                            </div>
-                <h5>Integrantes: {project.members}</h5>
-                <h5>Financiador(es): {project.financiers}</h5>
-
+                            <div class="titulo1">{project.title}</div>
+                            <div>{project.description}</div>
+                            <div>Integrantes: {project.members}</div>
+                            <div>Financiador(es): {project.financiers}</div>
                         </article>
-                            <Link to={`/Manage/Projects/edit/${project.project_id}`}>
-                                Editar um projeto
-                             </Link>
+                        <p>
+                            <Link to={`/Manage/Projects/edit/${project.project_id}`} class="link link--eirene">
+                                Editar este projeto
+                            </Link>
+                        </p>
                     </section>
-                </div>
+                    </div>
             );
         }) : null}
             
         
-            
-         <div>
-                <Link to="/Manage/Projects/create">
-                    Criar um projeto
-                </Link>
-            </div>
+         
 
-            <br/>
-            <div>
-                <Link to='/management'><button>Voltar</button></Link>
-            </div>
 
         </div>
         

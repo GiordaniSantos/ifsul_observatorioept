@@ -14,34 +14,25 @@ const CreateNew = ()=> {
        newsCreate(data)
     }
 
-    
-
     return(
-        <div className="">
-        <h1>Crie uma noticia</h1>
-        <div>
-            <form onSubmit={submitHandler}>
-                <div className="">
-                    <label>Autor</label>
+        <div id="conteudo" class="boxsimples">
+            <div class="titulo1">Crie uma notícia</div>
+            <div>
+                <form onSubmit={submitHandler}>
+                    <label for="authors">Autor(a)</label>
                     <input type="text" name="authors" />
-                </div>
-                <div className="">
-                    <label>Titulo</label>
+                                        
+                    <label>Título</label>
                     <input type="text" name="title" />
-                </div>
-                <div className="">
+                                        
                     <label for="descricao">Descrição</label>
                     <textarea id="descricao" name="description" rows="5" cols="33"></textarea>
-                </div>
-                <div>
-                    <button>Enviar noticia</button>
-                </div>
-            </form>
-            <div>
-                <Link to='/Manage/News/NewsAdmin'><button>Cancelar</button></Link>
+                    
+                    <input type="submit" value="Cadastrar a notícia" />
+                    
+                </form>
             </div>
         </div>
-    </div>
        
     );
 }

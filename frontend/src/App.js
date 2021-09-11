@@ -113,13 +113,12 @@ const App = () => {
                 </Route>
                 <Route path="/">
 
-                    <div id="home">
-
-
-                        <p>O Observatório da Educação Profissional e Tecnológica (EPT) IFSul tem sua origem em demandas que tematizam a história e os rumos das políticas educacionais em EPT, trata-se de um projeto que conta com o apoio da Fapergs e da Seção Sinasefe IFSul. </p>
-                        <p>O Observatório possui como objetivo promover atividades de estudo e pesquisa em interlocução com a comunidade acadêmica sobre a legislação educacional contemporânea e seus desdobramentos para os Institutos Federais, além de mapear pesquisas e práticas pedagógicas, constituindo um repositório sobre EPT.</p>
-                        <p>O Observatório da Educação Profissional e Tecnológica (EPT) do IFSul está também em parceria com a Pró-reitoria de Ensino com ações que estimulam a reflexão sobre as diretrizes da educação profissional e tecnológica e seu impacto nos institutos federais.  </p>
-
+                    <div id="home" class="boxsimples">
+                        <div >
+                            <p>O <b>Observatório da Educação Profissional e Tecnológica (EPT) IFSul</b> tem sua origem em demandas que tematizam a história e os rumos das políticas educacionais em EPT, trata-se de um projeto que conta com o apoio da Fapergs e da Seção Sinasefe IFSul. </p>
+                            <p>O Observatório possui como objetivo promover atividades de estudo e pesquisa em interlocução com a comunidade acadêmica sobre a legislação educacional contemporânea e seus desdobramentos para os Institutos Federais, além de mapear pesquisas e práticas pedagógicas, constituindo um repositório sobre EPT.</p>
+                            <p>O Observatório da Educação Profissional e Tecnológica (EPT) do IFSul está também em parceria com a Pró-reitoria de Ensino com ações que estimulam a reflexão sobre as diretrizes da educação profissional e tecnológica e seu impacto nos institutos federais.  </p>
+                        </div>
                     </div>
                     
                 </Route>

@@ -27,10 +27,8 @@ const News = ({newsList}) => {
     //   }, [newsList]);
     
     return(
-        <div id="noticias" class="container flex flex-wrap">
-            <div>
-            </div>        
-        
+        <div id="conteudo" class="container flex flex-wrap">
+           
             {news && news.length 
             ? news.map( (newww) => {
 
@@ -38,7 +36,7 @@ const News = ({newsList}) => {
                     <div key={newww.news_id} class="noticia-card">
                         <section >
                             <article >
-                                <div class="noticia-titulo">
+                                <div class="titulo1">
                                     <a class="link link--dia" href="#">{newww.title}</a>
                                 </div>
                                 <div class="noticia-data">{moment(newww.date).format('LL')}</div>

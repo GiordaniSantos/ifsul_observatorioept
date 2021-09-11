@@ -20,25 +20,19 @@ const ProjectEdit = ({project, projectGet, projectUpdate})=> {
  };
 
     return(
-        <div className="">
-        <h1>Editar noticia</h1>
-        <div>
-            <form onSubmit={submitHandler}>
-            <FormGroup label="Titulo" name="title" data={project} type="text" />
-            <FormGroup label="Descrição" name="description" data={project} type="text" />
-            <FormGroup label="Membros" name="members" data={project} type="text" />
-            <FormGroup label="Financiadores" name="financiers" data={project} type="text" />
-            
-                <div>
-                    <button>Editar noticia</button>
-                </div>
-            </form>
+        <div id="conteudo" class="boxsimples">
+            <div class="titulo1">Editar as informações do projeto</div>
             <div>
-                <Link to='/Manage/Projects/ProjectsAdmin'><button>Voltar</button></Link>
+                <form onSubmit={submitHandler}>
+                    <FormGroup label="Título" name="title" data={project} type="text" />
+                    <FormGroup label="Descrição" name="description" data={project} type="text" />
+                    <FormGroup label="Membros" name="members" data={project} type="text" />
+                    <FormGroup label="Financiadores" name="financiers" data={project} type="text" />
+                    
+                    <input type="submit" value="Salvar as alterações no projeto" />
+                </form>
             </div>
         </div>
-    </div>
-       
     );
 }
 

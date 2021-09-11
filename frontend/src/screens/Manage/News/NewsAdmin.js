@@ -29,42 +29,32 @@ const NewsAdmin = ({newsList}) => {
     
     
     return(
-        <div>
-            <div>
-                <h1>Noticias</h1>
-            </div>        
+        <div id="conteudo">
+            <div class="titulo1">
+                <div class="row">
+                    <div class="column">Gerenciamento das notícias</div>
+                    <div class="column">
+                    
+                        <Link class="link link--metis" to="/Manage/News/create">Cadastrar uma notícia</Link>
+                    </div>
+                </div>
+            </div>     
         
             {news && news.length 
             ? news.map( (newww) => {
                 
                 return (
                     <div key={newww.news_id}>
-                    <section>
-                        <article>
-                        <h3>{newww.title}</h3>
-                            <div>
-                <p>{newww.description}</p>
-                            </div>
-                        </article>
-                    </section>
-                    <Link to={`/Manage/News/edit/${newww.news_id}`}>
-                    Editar
-                    </Link>
-                </div>
+                        <section>
+                            <article>
+                                <div class="titulo1">{newww.title}</div>
+                                <div>{newww.description}</div>
+                            </article>
+                            <p><Link class="link link--eirene" to={`/Manage/News/edit/${newww.news_id}`}>Editar</Link></p>
+                        </section>
+                    </div>
             );
         }) : null}
-
-        <br></br>
-         <div>
-                <Link to="/Manage/News/create">
-                    Criar Noticia
-                </Link>
-            </div>
-            
-          <br/>
-            <div>
-                <Link to='/management'><button>Voltar</button></Link>
-            </div>
 
         </div>
         
