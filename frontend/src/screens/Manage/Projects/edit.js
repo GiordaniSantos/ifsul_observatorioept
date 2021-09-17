@@ -29,6 +29,7 @@ const ProjectEdit = ({project, projectGet, projectUpdate})=> {
                     <FormGroup label="Membros" name="members" data={project} type="text" />
                     <FormGroup label="Financiadores" name="financiers" data={project} type="text" />
                     
+                    
                     <input type="submit" value="Salvar as alterações no projeto" />
                 </form>
             </div>
