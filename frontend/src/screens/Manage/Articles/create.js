@@ -5,8 +5,7 @@ import { articlesCreate } from './ArticlesActions';
 import { connect } from 'react-redux';
 
 
-
-const ArticleCreate = ()=> {
+const ArticleCreate = ({articlesCreate, article})=> {
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -14,7 +13,7 @@ const ArticleCreate = ()=> {
         articlesCreate(data)
     }
 
-    
+    console.log(article)
 
     return(
         <div id="conteudo" class="boxsimples">
