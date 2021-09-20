@@ -1,4 +1,4 @@
-/*const { verifyJwt, getTokenFromHeaders } = require('../helpers/jwt');
+const { verifyJwt, getTokenFromHeaders } = require('../helpers/jwt');
 
 const checkJwt = (req, res, next) => {
 

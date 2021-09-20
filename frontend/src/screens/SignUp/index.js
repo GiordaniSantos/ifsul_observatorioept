@@ -1,16 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signUp } from './SignUpActions';
 import { getFormData } from '../../helpers/form';
 
-const SignUp = () => {
+const SignUp = (props) => {
+    const {signUp, account } = props;
 
     const submitHandler = (e) => {
         e.preventDefault();
         const data = getFormData(e);   
         signUp(data);
     };
+
+    if(account){
+        return <Redirect to="/management" />;
+    } 
 
     return(
         <div className="">

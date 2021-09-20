@@ -1,19 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signIn } from './SignInActions';
 
 
 const SignIn = (props) => {
-    const { account, signIn } = props;
+    const { signIn, account } = props;
+
+    if(account){
+        return <Redirect to="/management" />;
+    } 
+
 
     const submitHandler = (e) => {
         e.preventDefault();
 
-        signIn({email: 'dani12xbox@gmail.com', password: '1234'});
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+
+        signIn(data);
     };
 
-    console.log('*** SignIn.account', account);
 
     return(
         <div className="">
@@ -22,11 +29,11 @@ const SignIn = (props) => {
                 <form onSubmit={submitHandler}>
                     <div className="">
                         <label>Email</label>
-                        <input type="text" />
+                        <input type="text" name="email"/>
                     </div>
                     <div className="">
                         <label>Senha</label>
-                        <input type="password" />
+                        <input type="password" name="password"/>
                     </div>
                     <div>
                         <button>Logar</button>
