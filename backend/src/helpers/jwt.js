@@ -1,3 +1,4 @@
+/*
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
@@ -29,4 +30,4 @@ const getTokenFromHeaders = (headers) => {
     
 }
 
-module.exports = { generateJwt, generateRefreshJwt, verifyJwt, verifyRefreshJwt, getTokenFromHeaders };
+module.exports = { generateJwt, generateRefreshJwt, verifyJwt, verifyRefreshJwt, getTokenFromHeaders }; */

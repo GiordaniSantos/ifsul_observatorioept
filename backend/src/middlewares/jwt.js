@@ -1,3 +1,4 @@
+/*
 const { verifyJwt, getTokenFromHeaders } = require('../helpers/jwt');
 
 const checkJwt = (req, res, next) => {
@@ -31,4 +32,4 @@ const checkJwt = (req, res, next) => {
 
 };
 
-module.exports = checkJwt;
+module.exports = checkJwt; */

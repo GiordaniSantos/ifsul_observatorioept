@@ -18,7 +18,7 @@ const app = express();
 
 
 app.use(response);
-app.use(checkJwt);
+//app.use(checkJwt);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
