@@ -20,6 +20,7 @@ import ProjectsAdmin from './screens/Manage/Projects/ProjectsAdmin';
 import ArticleEdit from './screens/Manage/Articles/edit';
 import ScheduleEdit from './screens/Manage/Schedule/edit';
 import ProjectEdit from './screens/Manage/Projects/edit';
+import Members from './screens/Manage/Members/index';
 
 const App = () => {
     return (
@@ -39,12 +40,11 @@ const App = () => {
                                 <nav>
                                     <ul>
                                         <li><Link class="link link--metis" to="/">Sobre</Link></li>
+                                        <li><Link class="link link--metis" to="/members">Membros</Link></li>
                                         <li><Link class="link link--metis" to="/news">Notícias</Link></li>
                                         <li><Link class="link link--metis" to="/articles">Artigos</Link> </li>
                                         <li><Link class="link link--metis" to="/projects">Projetos</Link> </li>
                                         <li><Link class="link link--metis" to="/schedule">Agenda</Link></li>
-                                        <li><Link class="link link--metis" to="/sign-in">Login</Link> </li>
-                                        <li><Link class="link link--metis" to="/sign-up">Criar Conta</Link></li>
                                         <li><Link class="link link--metis" to="/management">Admin</Link></li>
                                     </ul>
                                 </nav>
@@ -54,6 +54,9 @@ const App = () => {
                 </div>
             </div>
             <Switch>
+                <Route path="/members">
+                    <Members/>
+                </Route>
                 <Route path="/news">
                     <News/>
                 </Route>
@@ -147,7 +150,13 @@ const App = () => {
                 </div> 
 
                 <div class="row">
-                    <p>Observatório EPT do IFSul. 2021. Todos os direitos reservados.</p>
+                        Nosso e-mail: observatorioept.ifsul(AT)gmail.com
+                </div>
+
+                <div class="row">
+                    <p>
+                        Observatório EPT do IFSul. 2021. Todos os direitos reservados.
+                    </p>
                 </div>
             </div>
 

@@ -13,6 +13,7 @@ const newsController = require('./controllers/newsController');
 const userController = require('./controllers/userController');
 const researchLineController = require('./controllers/researchLineController');
 const searchGroupController = require('./controllers/searchGroupController');
+const memberController = require('./controllers/memberController');
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use('/schedule' ,scheduleController);
 app.use('/project', projectController);
 app.use('/news', newsController);
 app.use('/user', userController);
+app.use('/members', memberController);
 app.use('/research_line', researchLineController);
 app.use('/search_group', searchGroupController);
 
