@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { newsList } from '../../Manage/News/NewsActions'; 
-import moment from 'moment'
+import moment from 'moment';
 import 'moment/locale/pt-br';
 
 const News = ({newsList}) => {

@@ -3,7 +3,11 @@ const { Schedule } = require('../models');
 const router = express.Router();
 
 router.get('/', async (req, res) =>{
-    const schedule = await Schedule.findAll();
+    const schedule = await Schedule.findAll(
+        {
+            order: [  ['date', 'DESC'] ] 
+        } 
+    );
     return res.jsonOK(schedule);
 });
 

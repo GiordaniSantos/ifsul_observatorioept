@@ -6,18 +6,17 @@ import {getFormData} from '../../../helpers/form';
 import { articleGet, articleUpdate } from './ArticlesActions';
 
 const ArticleEdit = ({article, articleGet, articleUpdate})=> {
- const { id } = useParams();
+    const { id } = useParams();
 
- useEffect(()=>{
-    articleGet(id);
- }, [id, articleGet])
+    useEffect(()=>{
+        articleGet(id);
+    }, [id, articleGet])
 
- const submitHandler = (e)=>{
-    e.preventDefault();
-    const data = getFormData(e)
-    articleUpdate(id, data);
-
- };
+    const submitHandler = (e)=>{
+        e.preventDefault();
+        const data = getFormData(e)
+        articleUpdate(id, data);
+    };
 
     return(
         <div id="conteudo" class="boxsimples">
