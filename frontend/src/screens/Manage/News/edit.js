@@ -1,25 +1,24 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import FormGroup from '../../../components/FormGroup';
-import {getFormData} from '../../../helpers/form';
+import { getFormData } from '../../../helpers/form';
 import { newGet, newUpdate } from '../../Manage/News/NewsActions';
 
-const NewEdit = ({neww, newGet, newUpdate})=> {
- const { id } = useParams();
+const NewEdit = ({ neww, newGet, newUpdate }) => {
+    const { id } = useParams();
 
- useEffect(()=>{
-     newGet(id);
- }, [id, newGet])
+    useEffect(() => {
+        newGet(id);
+    }, [id, newGet])
 
- const submitHandler = (e)=>{
-    e.preventDefault();
-    const data = getFormData(e)
-    newUpdate(id, data);
+    const submitHandler = (e) => {
+        e.preventDefault();
+        const data = getFormData(e)
+        newUpdate(id, data);
+    };
 
- };
-
-    return(
+    return (
         <div id="conteudo" class="boxsimples">
             <div class="titulo1">Editar noticia</div>
             <div>
@@ -31,8 +30,7 @@ const NewEdit = ({neww, newGet, newUpdate})=> {
                     <input type="submit" value="Editar noticia" />
                 </form>
             </div>
-     </div>
-       
+        </div>
     );
 }
 
@@ -42,4 +40,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, { newGet, newUpdate }) (NewEdit);
+export default connect(mapStateToProps, { newGet, newUpdate })(NewEdit);

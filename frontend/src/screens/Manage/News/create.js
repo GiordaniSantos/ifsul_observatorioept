@@ -1,10 +1,7 @@
 import React from 'react';
 import { getFormData } from '../../../helpers/form';
-import { Link } from 'react-router-dom';
 import { newsCreate } from './NewsActions';
 import { connect } from 'react-redux';
-
-
 
 const CreateNew = ()=> {
 

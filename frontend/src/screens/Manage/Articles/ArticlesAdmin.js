@@ -8,7 +8,7 @@ const ArticlesAdmin = ({ articlesList}) => {
 
     useEffect(()=>{
         exibir()
-     }, []);
+     });
 
     async function exibir() {
         const { payload } = await articlesList();

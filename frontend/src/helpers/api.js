@@ -20,9 +20,7 @@ export const apiPost = (path, data = {}) => {
         headers: getHeaders()
     };
 
-    console.log("post",data)
     return axios.post(url, data, options);
-   
 };
 
 export const apiPut = (path, data = {}) => {
@@ -31,9 +29,7 @@ export const apiPut = (path, data = {}) => {
         headers: getHeaders()
     };
 
-    console.log("put",data)
     return axios.put(url, data, options);
-   
 };
 
 export const apiGet = (path) => {
@@ -41,7 +37,6 @@ export const apiGet = (path) => {
     const options = {
         headers: getHeaders()
     };
-
 
     return axios.get(url, options);
 };

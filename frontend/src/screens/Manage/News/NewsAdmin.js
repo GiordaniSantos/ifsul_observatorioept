@@ -9,13 +9,17 @@ const NewsAdmin = ({newsList}) => {
     const [news, setNews] = useState([]);
 
     useEffect(()=>{
-        exibir()
-     }, []);
 
-    async function exibir() {
-        const { payload } = await newsList();
-        setNews(payload.data.data)
-    } 
+        async function exibir() {
+            const { payload } = await newsList();
+            setNews(payload.data.data)
+        } 
+
+        exibir()
+
+     });
+
+    
 
     // useEffect(()=>{
     //     articlesList()

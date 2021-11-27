@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import FormGroup from '../../../components/FormGroup';
 import {getFormData} from '../../../helpers/form';
 import { projectGet, projectUpdate } from './ProjectActions';

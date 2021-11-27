@@ -13,7 +13,7 @@ export default function (state = initialState, action) {
             const response = payload ? payload.data : null;
             const article = response ? response.data : null;
              return { ...state, article};
-        }  case ARTICLE_UPDATE: {
+        }  case ARTICLE_UPDATE: { 
             const response = payload ? payload.data : null;
             const article = response ? response.data : null;
             return { ...state, article};

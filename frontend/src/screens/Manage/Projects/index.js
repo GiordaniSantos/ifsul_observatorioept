@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { projectList } from '../Projects/ProjectActions';
 
 const Project = ({ projectList}) => {
    const [projects, setProjects] = useState([]);
 
     useEffect(()=>{
+        async function exibir() {
+            const { payload } = await projectList();
+            setProjects(payload.data.data)
+        } 
         exibir()
-     }, []);
+     }, [projectList]);
 
-    async function exibir() {
-        const { payload } = await projectList();
-        setProjects(payload.data.data)
-    } 
+   
 
     // useEffect(()=>{
     //     articlesList()

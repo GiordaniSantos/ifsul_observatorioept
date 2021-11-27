@@ -5,7 +5,7 @@ const initialState = {
     news: [],
 }
 
-export default function (state = initialState, action) {
+export default function foo(state = initialState, action) {
     const { type, payload } = action;
     switch(type) {
         case NEWS_CREATE: {

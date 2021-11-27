@@ -1,6 +1,5 @@
 import React from 'react';
 import { getFormData } from '../../../helpers/form';
-import { Link } from 'react-router-dom';
 import { articlesCreate } from './ArticlesActions';
 import { connect } from 'react-redux';
 
@@ -54,6 +53,5 @@ const ArticleCreate = ({articlesCreate, article})=> {
 const mapStateToProps = (state) => {
     return { article: state.article };
 };
-
 
 export default connect(mapStateToProps, {articlesCreate})(ArticleCreate);

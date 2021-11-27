@@ -1,11 +1,10 @@
 import { PROJECT_UPDATE, PROJECT_GET} from './ProjectActions';
 
 const initialState = {
-    project: null,
-    project: [],
+    project: []
 }
 
-export default function (state = initialState, action) {
+export default function foo (state = initialState, action) {
     const { type, payload } = action;
     switch(type) {
         case PROJECT_UPDATE: {

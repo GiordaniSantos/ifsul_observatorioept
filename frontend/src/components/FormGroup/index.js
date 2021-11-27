@@ -8,7 +8,7 @@ const FormGroup = (props) => {
     useEffect(()=>{
 
         const initialValue = data && data[name] ? data[name] : undefined;
-        if(initialValue != undefined) setValue(initialValue);
+        if(initialValue !== undefined) setValue(initialValue);
 
     }, [name, data])
 

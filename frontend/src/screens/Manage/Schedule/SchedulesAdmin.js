@@ -8,7 +8,7 @@ const SchedulesAdmin = ({ schedulesList}) => {
 
     useEffect(()=>{
         exibir()
-     }, []);
+     });
 
     async function exibir() {
         const { payload } = await schedulesList();

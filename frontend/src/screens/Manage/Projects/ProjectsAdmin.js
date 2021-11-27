@@ -7,13 +7,17 @@ const ProjectsAdmin = ({ projectList}) => {
    const [projects, setProjects] = useState([]);
 
     useEffect(()=>{
-        exibir()
-     }, []);
 
-    async function exibir() {
-        const { payload } = await projectList();
-        setProjects(payload.data.data)
-    } 
+        async function exibir() {
+            const { payload } = await projectList();
+            setProjects(payload.data.data)
+        } 
+
+        exibir()
+        
+     });
+
+    
 
     // useEffect(()=>{
     //     articlesList()

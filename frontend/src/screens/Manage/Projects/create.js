@@ -1,10 +1,7 @@
 import React from 'react';
 import { getFormData } from '../../../helpers/form';
-import { Link } from 'react-router-dom';
 import { projectCreate } from './ProjectActions';
 import { connect } from 'react-redux';
-
-
 
 const CreateProject = ()=> {
 
@@ -13,8 +10,6 @@ const CreateProject = ()=> {
         const data = getFormData(e);   
         projectCreate(data)
     }
-
-    
 
     return(
         <div id="conteudo" class="boxsimples">

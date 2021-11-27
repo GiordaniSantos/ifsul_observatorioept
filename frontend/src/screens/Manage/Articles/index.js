@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { articlesList } from '../../Manage/Articles/ArticlesActions'; 
 
 const Articles = ({ articlesList}) => {
    const [articles, setArticles] = useState([]);
 
     useEffect(()=>{
+        async function exibir() {
+            const { payload } = await articlesList();
+            setArticles(payload.data.data)
+        } 
         exibir()
-     }, []);
+     }, [articlesList]);
 
-    async function exibir() {
-        const { payload } = await articlesList();
-        setArticles(payload.data.data)
-    } 
+   
 
     // useEffect(()=>{
     //     articlesList()
@@ -35,7 +35,7 @@ const Articles = ({ articlesList}) => {
                                 {article.dissemination_vehicle} ({article.year}) <br/>
                             </div>
                             <div class="artigo-link">
-                                <a class="link link--dia" target="_blank" href={article.access_link}>Acessar a publicação</a>
+                                <a class="link link--dia" rel="noreferrer" target="_blank" href={article.access_link}>Acessar a publicação</a>
                             </div>
                             <div class="artigo-serparador"></div>
                         </article>

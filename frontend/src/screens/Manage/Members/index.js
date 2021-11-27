@@ -1,34 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { membersList } from '../../Manage/Members/MembersActions'; 
+import { membersList, membersSearch } from '../../Manage/Members/MembersActions';
+import MembersListComponent from './MembersListComponent';
 
-const Members = ( { membersList } ) => {
-   const [members, setMembers] = useState([]);
+const Members = ({ membersList }) => {
+    const [members, setMembers] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
+        async function exibir() {
+            const { payload } = await membersList();
+            setMembers(payload.data.data)
+        }
         exibir()
-     }, []);
+    }, [membersList]);
 
-    async function exibir() {
-        const { payload } = await membersList();
-        setMembers(payload.data.data)
-    } 
+    const onChangeHandler = async e => {
+        const { payload } = membersSearch(e.target.value);
+        setMembers((await payload).data.data)
+    }
 
-    return(
-        <div id="home" class="boxsimples">                        
+    return (
+        <div id="home" class="boxsimples">
+
+            <input
+                onChange={e => onChangeHandler(e)}
+                placeholder="Pesquise por nome..."
+            />
+
             <div class="titulo1">Participantes</div>
 
-            {members && members.length 
-            ? members.map( (member) => {
-                console.log(member)
-                return (
-                <div>
-                    <p><a class="link link--dia" href={member.link_curriculum} target="_blank">{member.name} ({member.institution})</a></p>
-                </div>
-            );
-        }) : null}
-            
+            <MembersListComponent members={members} />
+
         </div>
     );
 };
@@ -37,4 +39,4 @@ const mapStateToProps = (state) => {
     return { members: state.members };
 };
 
-export default connect(mapStateToProps, {membersList})(Members);
+export default connect(mapStateToProps, { membersList })(Members);

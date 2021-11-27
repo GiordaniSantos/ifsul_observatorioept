@@ -115,7 +115,6 @@ const App = () => {
                     <Management/>
                 </Route>
                 <Route path="/">
-
                     <div id="home" class="boxsimples">
                         <div >
                             <p>O <b>Observatório da Educação Profissional e Tecnológica (EPT) IFSul</b> tem sua origem em demandas que tematizam a história e os rumos das políticas educacionais em EPT, trata-se de um projeto que conta com o apoio da Fapergs e da Seção Sinasefe IFSul. </p>
@@ -123,28 +122,26 @@ const App = () => {
                             <p>O Observatório da Educação Profissional e Tecnológica (EPT) do IFSul está também em parceria com a Pró-reitoria de Ensino com ações que estimulam a reflexão sobre as diretrizes da educação profissional e tecnológica e seu impacto nos institutos federais.  </p>
                         </div>
                     </div>
-                    
                 </Route>
             </Switch>
-
 
             <div id="rodape">
                 <div class="row">
                     <div class="column">
                         <b>Acompanhe nossas redes:</b>
                         <ul>
-                            <li><a class="link link--metis" href="https://www.instagram.com/observatorioifsul/" target="_blank">Instagram</a></li>
-                            <li><a class="link link--metis" href="#" target="_blank">Facebook</a></li>
-                            <li><a class="link link--metis" href="https://www.youtube.com/c/Observat%C3%B3rioEPTIFSul" target="_blank">YouTube</a></li>
+                            <li><a class="link link--metis" rel="noreferrer" href="https://www.instagram.com/observatorioifsul/" target="_blank">Instagram</a></li>
+                            <li><a class="link link--metis" rel="noreferrer" href="#" target="_blank">Facebook</a></li>
+                            <li><a class="link link--metis" rel="noreferrer" href="https://www.youtube.com/c/Observat%C3%B3rioEPTIFSul" target="_blank">YouTube</a></li>
                         </ul>                            
                     </div>
 
                     <div class="column">
                         <b>Institucional e parcerias:</b>
                         <ul>
-                            <li><a class="link link--metis" href="http://www.ifsul.edu.br/" target="_blank">IFSul</a></li>
-                            <li><a class="link link--metis" href="https://www.sinasefeifsul.org.br/" target="_blank">Sinasefe IFSul</a></li>
-                            <li><a class="link link--metis" href="https://www.ufrgs.br/observatoriodoensinomedio-rs/" target="_blank">Observatório do Ensino Médio – RS</a></li>
+                            <li><a class="link link--metis" rel="noreferrer" href="http://www.ifsul.edu.br/" target="_blank">IFSul</a></li>
+                            <li><a class="link link--metis" rel="noreferrer" href="https://www.sinasefeifsul.org.br/" target="_blank">Sinasefe IFSul</a></li>
+                            <li><a class="link link--metis" rel="noreferrer" href="https://www.ufrgs.br/observatoriodoensinomedio-rs/" target="_blank">Observatório do Ensino Médio – RS</a></li>
                         </ul>
                     </div>
                 </div> 

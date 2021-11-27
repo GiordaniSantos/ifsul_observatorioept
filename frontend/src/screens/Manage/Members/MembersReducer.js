@@ -2,21 +2,18 @@
 import { MEMBERS_LIST } from './MembersActions';
 
 const initialState = {
-    article: null,
-    articles: [],
+    members: []
 }
 
 export default function (state = initialState, action) {
     const { type, payload } = action;
-    switch(type) {
+
+    switch (type) {
         case MEMBERS_LIST: {
             const response = payload ? payload.data : null;
             const members = response ? response.data : null;
-            return {...state, members};
-            
+            return { ...state, members };
         }
-        default: {
-            return state;
-        }
+        default: return state;
     }
 };

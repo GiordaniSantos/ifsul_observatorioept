@@ -1,11 +1,10 @@
 import { SCHEDULE_CREATE, SCHEDULE_UPDATE, SCHEDULE_GET } from './ScheduleActions';
 
 const initialState = {
-    schedule: null,
-    schedule: [],
+    schedule: []
 }
 
-export default function (state = initialState, action) {
+export default function foo(state = initialState, action) {
     const { type, payload } = action;
     switch(type) {
         case SCHEDULE_CREATE: {
@@ -21,7 +20,6 @@ export default function (state = initialState, action) {
         case SCHEDULE_GET: {
             const response = payload ? payload.data : null;
             const schedule = response ? response.data : null;
-            
             return {...state, schedule};
         }
         default: {
