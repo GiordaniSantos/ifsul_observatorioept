@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
 import { membersList, membersSearch } from '../../Manage/Members/MembersActions';
 import MembersListComponent from './MembersListComponent';
 
-const Members = ({ membersList }) => {
+const Members = () => {
+    // aqui defina uma informacao (members) no estado e define o metodo setMembers para atualizar esse estado, 
+    // o parâmetro do usetState define o estado inicial
+    // referencia: https://pt-br.reactjs.org/docs/hooks-state.html
     const [members, setMembers] = useState([]);
 
+    // chamado depois que o react atualiza o DOM (render)
+    // Usando esse Hook, você diz ao React que o componente precisa fazer algo apenas depois (de toda) da renderização
+    // referencia: https://pt-br.reactjs.org/docs/hooks-effect.html
     useEffect(() => {
         async function exibir() {
-            const { payload } = await membersList();
-            setMembers(payload.data.data)
+            const { payload } = membersList();
+            setMembers((await payload).data.data)
         }
         exibir()
-    }, [membersList]);
+    }, []);
+    // esse parâmetro entre [] serve para dizer ao react para re-executar o efeito apenas quando seus valor mudar
 
     const onChangeHandler = async e => {
         const { payload } = membersSearch(e.target.value);
@@ -22,21 +28,24 @@ const Members = ({ membersList }) => {
     return (
         <div id="home" class="boxsimples">
 
-            <input
-                onChange={e => onChangeHandler(e)}
-                placeholder="Pesquise por nome..."
-            />
+            <div class="row">
+                <div class="column">
+                    <div class="titulo1">Participantes</div>
+                </div>
 
-            <div class="titulo1">Participantes</div>
+                <div class="column column_right search">
+                    <input 
+                        type="text"
+                        onChange={e => onChangeHandler(e)}
+                        placeholder="Pesquise por nome..."
+                    />
+                </div>
+            </div>
 
             <MembersListComponent members={members} />
 
         </div>
     );
-};
+}
 
-const mapStateToProps = (state) => {
-    return { members: state.members };
-};
-
-export default connect(mapStateToProps, { membersList })(Members);
+export default Members;

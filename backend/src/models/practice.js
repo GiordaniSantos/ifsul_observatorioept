@@ -1,30 +1,37 @@
 module.exports = (sequelize, DataTypes) => {
-    const Member = sequelize.define('Member', {
-        member_id: {
+    const Practice = sequelize.define('Practice', {
+        practice_id: {
             allowNull: false,
             autoIncrement: true,
             primaryKey: true,
             type: DataTypes.INTEGER,
         },
-        name: {
+        title: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        }, 
+        abstract: {
             type: DataTypes.STRING,
             allowNull: true,
         },
-        institution: {
+        place: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
-        link_curriculum:{
+        link: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        }, 
+        subject: {
             type: DataTypes.STRING,
             allowNull: true,
         }
     });
 
-    Member.prototype.toJSON = function() {
+    Practice.prototype.toJSON = function() {
         const values = { ...this.get() };
-        // delete values.password;
         return values;
     };
 
-    return Member;
+    return Practice;
 }

@@ -4,6 +4,8 @@ class MembersListComponent extends React.Component {
     render() {
         let members = this.props.members;
 
+        console.log('members list render');
+
         return (
             <div>
                 {

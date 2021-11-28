@@ -14,6 +14,7 @@ const userController = require('./controllers/userController');
 const researchLineController = require('./controllers/researchLineController');
 const searchGroupController = require('./controllers/searchGroupController');
 const memberController = require('./controllers/memberController');
+const practicesController = require('./controllers/practicesController');
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.use('/project', projectController);
 app.use('/news', newsController);
 app.use('/user', userController);
 app.use('/members', memberController);
+app.use('/practices', practicesController);
 app.use('/research_line', researchLineController);
 app.use('/search_group', searchGroupController);
 

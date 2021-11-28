@@ -21,6 +21,7 @@ import ArticleEdit from './screens/Manage/Articles/edit';
 import ScheduleEdit from './screens/Manage/Schedule/edit';
 import ProjectEdit from './screens/Manage/Projects/edit';
 import Members from './screens/Manage/Members/index';
+import Practices from './screens/Manage/Practices/index';
 
 const App = () => {
     return (
@@ -44,6 +45,7 @@ const App = () => {
                                         <li><Link class="link link--metis" to="/news">Notícias</Link></li>
                                         <li><Link class="link link--metis" to="/articles">Artigos</Link> </li>
                                         <li><Link class="link link--metis" to="/projects">Projetos</Link> </li>
+                                        <li><Link class="link link--metis" to="/practices">Práticas</Link> </li>
                                         <li><Link class="link link--metis" to="/schedule">Agenda</Link></li>
                                         <li><Link class="link link--metis" to="/management">Admin</Link></li>
                                     </ul>
@@ -54,6 +56,9 @@ const App = () => {
                 </div>
             </div>
             <Switch>
+                <Route path="/practices">
+                    <Practices />
+                </Route>
                 <Route path="/members">
                     <Members/>
                 </Route>

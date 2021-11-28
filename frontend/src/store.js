@@ -6,7 +6,6 @@ import signInReducer from './screens/SignIn/SignInReducer';
 import signUpReducer from './screens/SignUp/SignUpReducer';
 import ScheduleReducer from './screens/Manage/Schedule/ScheduleReducer';
 import ProjectReducer from './screens/Manage/Projects/ProjectReducer';
-import MemberReducer from './screens/Manage/Members/MembersReducer';
 
 const reducers = combineReducers({
     signIn: signInReducer,
@@ -14,8 +13,7 @@ const reducers = combineReducers({
     neww: NewsReducer,
     article: ArticlesReducer,
     schedule: ScheduleReducer,
-    project: ProjectReducer,
-    member: MemberReducer
+    project: ProjectReducer
 });
 
 const store = createStore(reducers, applyMiddleware(ReduxPromise));

@@ -18,8 +18,8 @@ export const newUpdate = (id, data) => {
 };
 
 export const newGet = (id) => {
-       const payload = apiGet(`/news/${id}`);
-       return { type: NEW_GET, payload }
+    const payload = apiGet(`/news/${id}`);
+    return { type: NEW_GET, payload }
 }
 
 export const newsList = (data) => {
