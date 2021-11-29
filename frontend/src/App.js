@@ -47,7 +47,6 @@ const App = () => {
                                         <li><Link class="link link--metis" to="/projects">Projetos</Link> </li>
                                         <li><Link class="link link--metis" to="/practices">Práticas</Link> </li>
                                         <li><Link class="link link--metis" to="/schedule">Agenda</Link></li>
-                                        <li><Link class="link link--metis" to="/management">Admin</Link></li>
                                     </ul>
                                 </nav>
                             </td>

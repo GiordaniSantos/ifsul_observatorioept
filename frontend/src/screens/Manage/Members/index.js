@@ -1,5 +1,5 @@
+import { apiGet } from '../../../helpers/api';
 import React, { useEffect, useState } from 'react';
-import { membersList, membersSearch } from '../../Manage/Members/MembersActions';
 import MembersListComponent from './MembersListComponent';
 
 const Members = () => {
@@ -13,7 +13,7 @@ const Members = () => {
     // referencia: https://pt-br.reactjs.org/docs/hooks-effect.html
     useEffect(() => {
         async function exibir() {
-            const { payload } = membersList();
+            const payload = apiGet('/members');
             setMembers((await payload).data.data)
         }
         exibir()
@@ -21,7 +21,7 @@ const Members = () => {
     // esse parâmetro entre [] serve para dizer ao react para re-executar o efeito apenas quando seus valor mudar
 
     const onChangeHandler = async e => {
-        const { payload } = membersSearch(e.target.value);
+        const payload = apiGet('/members/pesquisar?termo=' + e.target.value);
         setMembers((await payload).data.data)
     }
 

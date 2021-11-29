@@ -22,7 +22,7 @@ export const projectGet = (id) => {
        return { type: PROJECT_GET, payload }
 }
 
-export const projectList = (data) => {
+export const projectList = () => {
     // fazer requisição na API
     const payload = apiGet('/project');
     return { type: PROJECT_LIST, payload }

@@ -1,5 +1,5 @@
+import { apiGet } from '../../../helpers/api';
 import React, { useEffect, useState } from 'react';
-import { practicesList } from '../../Manage/Practices/PracticesActions';
 import moment from 'moment';
 import 'moment/locale/pt-br';
 
@@ -8,7 +8,7 @@ const Practices = () => {
 
     useEffect(() => {
         async function exibir() {
-            const { payload } = practicesList();
+            const payload = apiGet("/practices");
             setPractices((await payload).data.data)
         }
         exibir()
