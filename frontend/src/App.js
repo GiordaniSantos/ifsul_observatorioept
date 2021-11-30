@@ -55,7 +55,7 @@ const App = () => {
                 </div>
             </div>
             <Switch>
-                <Route path="/practices">
+                <Route path="/practices"> 
                     <Practices />
                 </Route>
                 <Route path="/members">
@@ -109,6 +109,7 @@ const App = () => {
                 <Route path="/Manage/Projects/create">
                     <CreateProject/>
                 </Route>
+               
                 <Route path="/sign-in">
                     <SignIn/>
                 </Route>

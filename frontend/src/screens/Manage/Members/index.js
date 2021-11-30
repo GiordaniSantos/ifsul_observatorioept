@@ -3,24 +3,19 @@ import React, { useEffect, useState } from 'react';
 import MembersListComponent from './MembersListComponent';
 
 const Members = () => {
-    // aqui defina uma informacao (members) no estado e define o metodo setMembers para atualizar esse estado, 
-    // o parâmetro do usetState define o estado inicial
-    // referencia: https://pt-br.reactjs.org/docs/hooks-state.html
     const [members, setMembers] = useState([]);
 
-    // chamado depois que o react atualiza o DOM (render)
-    // Usando esse Hook, você diz ao React que o componente precisa fazer algo apenas depois (de toda) da renderização
-    // referencia: https://pt-br.reactjs.org/docs/hooks-effect.html
     useEffect(() => {
         async function exibir() {
             const payload = apiGet('/members');
+
             setMembers((await payload).data.data)
         }
         exibir()
     }, []);
-    // esse parâmetro entre [] serve para dizer ao react para re-executar o efeito apenas quando seus valor mudar
 
     const onChangeHandler = async e => {
+        // e.target.value ---> pega o conteudo da caixa de texto que gerou o evento onChangeHandler
         const payload = apiGet('/members/pesquisar?termo=' + e.target.value);
         setMembers((await payload).data.data)
     }
@@ -43,7 +38,6 @@ const Members = () => {
             </div>
 
             <MembersListComponent members={members} />
-
         </div>
     );
 }

@@ -23,7 +23,6 @@ export const articleGet = (id) => {
 };
 
 export const articlesList = (data) => {
-    // fazer requisição na API
     const payload = apiGet('/article');
     return { type: ARTICLES_LIST, payload }
 };

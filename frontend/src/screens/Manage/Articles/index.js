@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
 import { articlesList } from '../../Manage/Articles/ArticlesActions'; 
 
-const Articles = ({ articlesList}) => {
-   const [articles, setArticles] = useState([]);
+const Articles = ( ) => {
+    const [articles, setArticles] = useState([]);
 
     useEffect(()=>{
         async function exibir() {
-            const { payload } = await articlesList();
-            setArticles(payload.data.data)
+            const { payload } = articlesList();
+
+            setArticles((await payload).data.data)
+
+            console.log( (await payload).data.data);
         } 
         exibir()
-     }, [articlesList]);
-
-   
-
-    // useEffect(()=>{
-    //     articlesList()
-    //  }, [articlesList]);
+     }, []);
 
     return(
         <div id="conteudo">
@@ -44,15 +40,8 @@ const Articles = ({ articlesList}) => {
             );
         }) : null}
             
-        
-            
         </div>
-        
     );
 };
 
-const mapStateToProps = (state) => {
-    return { articles: state.articles };
-};
-
-export default connect(mapStateToProps, {articlesList})(Articles);
+export default Articles;

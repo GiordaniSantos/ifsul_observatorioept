@@ -2,7 +2,6 @@ const express = require('express');
 const { Member } = require('../models');
 const { Op } = require("sequelize");
 const {generateJwt, generateRefreshJwt} = require('../helpers/jwt');
-
 const router = express.Router();
 
 router.get('/', async (req, res) =>{
@@ -15,6 +14,7 @@ router.get('/', async (req, res) =>{
     return res.jsonOK(members);
 });
 
+// /members/pesqusiar?termo=abc
 router.get('/pesquisar', async (req, res) =>{
 
     // TODO melhorar a segurança do 'termo'
