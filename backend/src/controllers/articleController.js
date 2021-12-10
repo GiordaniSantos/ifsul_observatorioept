@@ -1,5 +1,6 @@
 const express = require('express');
 const { Article } = require('../models');
+const { Op } = require("sequelize");
 
 const router = express.Router();
 
@@ -13,6 +14,19 @@ router.get('/:id', async (req, res)=>{
     const article  = await Article.findOne({where: {article_id:id}});
     if(!article) return res.jsonNotFound();
     return res.jsonOK(article);
+});
+
+router.get('/s/pesquisar/', async (req, res) =>{
+    const query = req.query.termo;
+
+    const articles = 
+        await Article.findAll( 
+            {
+                where: { title: { [Op.substring]: query } },
+                order: [  ['title', 'ASC'] ] 
+            } 
+        );
+    return res.jsonOK(articles);
 });
 
 router.post('/', async (req, res) => {

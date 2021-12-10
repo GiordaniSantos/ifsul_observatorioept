@@ -25,9 +25,9 @@ const CreateNew = ()=> {
                     <Input type="text" name="title" />
                                         
                     <label for="descricao">Descrição</label>
-                    <Input id="descricao" name="description" rows="5" cols="33"/>
+                    <Input type="text" id="descricao" name="description" />
                     
-                    <Input type="submit" value="Cadastrar a notícia" />
+                    <Input type="submit" name="submit" value="Cadastrar a notícia" />
                     
                 </Form>
             </div>
