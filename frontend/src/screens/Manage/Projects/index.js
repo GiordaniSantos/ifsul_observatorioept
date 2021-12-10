@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { apiGet } from '../../../helpers/api';
 import { projectList } from '../Projects/ProjectActions';
 
 const Project = () => {
@@ -13,8 +14,24 @@ const Project = () => {
         exibir()
     }, []);
 
+    const onChangeHandler = async e => {
+        // e.target.value ---> pega o conteudo da caixa de texto que gerou o evento onChangeHandler
+        const payload = apiGet('/project/s/pesquisar?termo=' + e.target.value);
+        setProjects((await payload).data.data)
+    }
+
     return (
         <div id="conteudo">
+
+            <div  class="column column_right search">
+                    <input 
+                        type="text"
+                        onChange={e => onChangeHandler(e)}
+                        placeholder="Pesquisar projeto..."
+                    />
+            </div>
+     
+
             {projects && projects.length
                 ? projects.map((project) => {
                     return (

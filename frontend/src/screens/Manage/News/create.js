@@ -2,6 +2,8 @@ import React from 'react';
 import { getFormData } from '../../../helpers/form';
 import { newsCreate } from './NewsActions';
 import { connect } from 'react-redux';
+import { Form } from '@unform/web';
+import Input from '../../../components/Form/input';
 
 const CreateNew = ()=> {
 
@@ -15,19 +17,19 @@ const CreateNew = ()=> {
         <div id="conteudo" class="boxsimples">
             <div class="titulo1">Crie uma notícia</div>
             <div>
-                <form onSubmit={submitHandler}>
+                <Form onSubmit={submitHandler}>
                     <label for="authors">Autor(a)</label>
-                    <input type="text" name="authors" />
+                    <Input type="text" name="authors" />
                                         
                     <label>Título</label>
-                    <input type="text" name="title" />
+                    <Input type="text" name="title" />
                                         
                     <label for="descricao">Descrição</label>
-                    <textarea id="descricao" name="description" rows="5" cols="33"></textarea>
+                    <Input id="descricao" name="description" rows="5" cols="33"/>
                     
-                    <input type="submit" value="Cadastrar a notícia" />
+                    <Input type="submit" value="Cadastrar a notícia" />
                     
-                </form>
+                </Form>
             </div>
         </div>
        

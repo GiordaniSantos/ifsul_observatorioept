@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { newsList } from '../../Manage/News/NewsActions'; 
 import moment from 'moment';
 import 'moment/locale/pt-br';
+import { apiGet } from '../../../helpers/api';
 
 const News = ({newsList}) => {
 
@@ -16,6 +17,13 @@ const News = ({newsList}) => {
         exibir()
     }, [newsList]);
 
+    const onChangeHandler = async e => {
+        // e.target.value ---> pega o conteudo da caixa de texto que gerou o evento onChangeHandler
+        const payload = apiGet('/news/s/pesquisar?termo=' + e.target.value);
+        setNews((await payload).data.data)
+    }
+
+
     // useEffect(()=>{
     //     articlesList()
     //  }, [articlesList]);
@@ -25,7 +33,19 @@ const News = ({newsList}) => {
     //   }, [newsList]);
     
     return(
+        <div id="conteudo">
+            <div  class="column column_right search">
+                    <input 
+                        type="text"
+                        onChange={e => onChangeHandler(e)}
+                        placeholder="Pesquise pelo titulo..."
+                    />
+            </div>
+     
+        
         <div id="conteudo" class="container flex flex-wrap">
+
+ 
            
             {news && news.length 
             ? news.map( (newww) => {
@@ -47,7 +67,7 @@ const News = ({newsList}) => {
         }) : null}
 
         </div>
-        
+        </div>
     );
 };
 
