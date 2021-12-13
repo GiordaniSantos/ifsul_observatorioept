@@ -17,7 +17,7 @@ const NewsAdmin = ({newsList}) => {
 
         exibir()
 
-     });
+     }, []);
 
     
 

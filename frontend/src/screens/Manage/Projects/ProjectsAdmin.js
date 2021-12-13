@@ -15,7 +15,7 @@ const ProjectsAdmin = ({ projectList}) => {
 
         exibir()
         
-     });
+     }, []);
 
     
 

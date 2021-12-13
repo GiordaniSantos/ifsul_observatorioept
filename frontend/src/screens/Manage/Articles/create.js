@@ -1,18 +1,22 @@
 import React from 'react';
 import { getFormData } from '../../../helpers/form';
 import { articlesCreate } from './ArticlesActions';
-import { connect } from 'react-redux';
 
-
-const ArticleCreate = ({articlesCreate, article})=> {
+const ArticleCreate = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        const data = getFormData(e);   
-        articlesCreate(data)
-    }
+        const data = getFormData(e);
+        criaArtigo(data);
 
-    console.log(article)
+        async function criaArtigo(data)
+        {
+            const { payload } = articlesCreate(data);
+
+            // alerta não é a melhor forma, ver se o react tem algum componente mais bonito ou mais eficiente
+            alert( (await payload).data.message );
+        }
+    }
 
     return(
         <div id="conteudo" class="boxsimples">
@@ -50,8 +54,4 @@ const ArticleCreate = ({articlesCreate, article})=> {
     );
 }
 
-const mapStateToProps = (state) => {
-    return { article: state.article };
-};
-
-export default connect(mapStateToProps, {articlesCreate})(ArticleCreate);
+export default ArticleCreate;

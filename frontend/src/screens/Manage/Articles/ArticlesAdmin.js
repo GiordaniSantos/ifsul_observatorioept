@@ -7,13 +7,15 @@ const ArticlesAdmin = ({ articlesList}) => {
    const [articles, setArticles] = useState([]);
 
     useEffect(()=>{
-        exibir()
-     });
+        async function exibir() {
+            const { payload } = await articlesList();
+            setArticles(payload.data.data)
+        } 
 
-    async function exibir() {
-        const { payload } = await articlesList();
-        setArticles(payload.data.data)
-    } 
+        exibir()
+     }, []);
+
+   
 
     // useEffect(()=>{
     //     articlesList()

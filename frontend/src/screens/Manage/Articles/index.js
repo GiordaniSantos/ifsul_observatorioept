@@ -8,9 +8,7 @@ const Articles = ( ) => {
     useEffect(()=>{
         async function exibir() {
             const { payload } = articlesList();
-
             setArticles((await payload).data.data)
-
         } 
         exibir()
      }, []);

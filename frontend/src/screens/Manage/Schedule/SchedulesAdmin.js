@@ -7,13 +7,15 @@ const SchedulesAdmin = ({ schedulesList}) => {
    const [schedules, setSchedules] = useState([]);
 
     useEffect(()=>{
-        exibir()
-     });
+        async function exibir() {
+            const { payload } = await schedulesList();
+            setSchedules(payload.data.data)
+        } 
 
-    async function exibir() {
-        const { payload } = await schedulesList();
-        setSchedules(payload.data.data)
-    } 
+        exibir()
+     }, []);
+
+    
 
     // useEffect(()=>{
     //     articlesList()
