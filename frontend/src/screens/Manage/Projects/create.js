@@ -3,7 +3,9 @@ import { getFormData } from '../../../helpers/form';
 import { projectCreate } from './ProjectActions';
 import { connect } from 'react-redux';
 
-const CreateProject = ()=> {
+const CreateProject = (props)=> {
+    const { account } = props;
+    console.log(account)
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -27,6 +29,9 @@ const CreateProject = ()=> {
                     
                     <label>Financiadores</label>
                     <input type="text" name="financiers" />
+
+                    <label>id do usuario/curriculo</label>
+                    <input type="text" name="curriculumId" value={account.user_id} />
                     
                     <input type="submit" value="Registrar este projeto" />
                 </form>
@@ -36,7 +41,8 @@ const CreateProject = ()=> {
 }
 
 const mapStateToProps = (state) => {
-    return { project: state.project };
+    return { project: state.project,
+        account: state.signIn.account };
 };
 
 

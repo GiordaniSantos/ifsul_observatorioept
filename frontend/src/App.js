@@ -22,8 +22,13 @@ import ScheduleEdit from './screens/Manage/Schedule/edit';
 import ProjectEdit from './screens/Manage/Projects/edit';
 import Members from './screens/Manage/Members/index';
 import Practices from './screens/Manage/Practices/index';
+import Cluster from './screens/Manage/Cluster/index';
+import CurriculumCreate from './screens/Manage/Currirulum/create';
+import CurriculumEdit from './screens/Manage/Currirulum/edit';
+import Curriculum from './screens/Manage/Currirulum/index';
 
 const App = () => {
+
     return (
         <BrowserRouter>
         
@@ -47,6 +52,13 @@ const App = () => {
                                         <li><Link class="link link--metis" to="/projects">Projetos</Link> </li>
                                         <li><Link class="link link--metis" to="/practices">Práticas</Link> </li>
                                         <li><Link class="link link--metis" to="/schedule">Agenda</Link></li>
+                                        <li><Link class="link link--metis" to="/sign-up">Criar Conta</Link></li>
+                                        <li><Link class="link link--metis" to="/sign-in">Logar</Link></li>
+
+                                      
+                               
+                                        
+                                        
                                     </ul>
                                 </nav>
                             </td>
@@ -109,6 +121,18 @@ const App = () => {
                 <Route path="/Manage/Projects/create">
                     <CreateProject/>
                 </Route>
+
+                <Route path="/Manage/Curriculum/create">
+                    <CurriculumCreate/>
+                </Route>
+
+                <Route path="/Manage/Curriculum/edit/:id">
+                    <CurriculumEdit/>
+                </Route>
+
+                <Route path="/Curriculum">
+                    <Curriculum/>
+                </Route>
                
                 <Route path="/sign-in">
                     <SignIn/>
@@ -118,6 +142,9 @@ const App = () => {
                 </Route>
                 <Route path="/management">
                     <Management/>
+                </Route>
+                <Route path="/cluster">
+                    <Cluster/>
                 </Route>
                 <Route path="/">
                     <div id="home" class="boxsimples">
@@ -166,5 +193,6 @@ const App = () => {
         </BrowserRouter>
     );
 };
+
 
 export default App;

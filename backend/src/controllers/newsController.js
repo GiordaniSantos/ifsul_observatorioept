@@ -1,5 +1,6 @@
 const express = require('express');
 const { News } = require('../models');
+const { Op } = require("sequelize");
 
 const router = express.Router();
 
@@ -12,6 +13,22 @@ router.get('/:id', async (req, res)=>{
     const { id } = req.params;
     const news  = await News.findOne({where: {news_id:id}});
     if(!news) return res.jsonNotFound();
+    return res.jsonOK(news);
+});
+
+router.get('/s/pesquisar', async (req, res) =>{
+
+    // TODO melhorar a segurança do 'termo'
+
+    const query = req.query.termo;
+
+    const news = 
+        await News.findAll(
+            {
+            where: {title: { [Op.substring]: query }},
+            order: [ ['title', 'ASC'] ]
+            }
+        );
     return res.jsonOK(news);
 });
 

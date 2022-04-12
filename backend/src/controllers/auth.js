@@ -17,10 +17,11 @@ router.post('/sign-in', userSignIn, async (req, res) => {
     const match = account ? bcrypt.compareSync(password, account.password) : null;
     if(!match) return res.jsonBadRequest(null, getMessage('user.signin.invalid'));
 
-    const token = generateJwt({id: account.id});
-    const refreshToken = generateRefreshJwt({id: account.id, version: account.jwtVersion});
-
-    return res.jsonOK(account,  getMessage('user.signin.sucess'), {token, refreshToken});
+    //const token = generateJwt({id: account.id});
+    //const refreshToken = generateRefreshJwt({id: account.id, version: account.jwtVersion});
+    
+    return res.jsonOK(account,  getMessage('user.signin.sucess')//, {token, refreshToken}
+    );
 });
 
 router.post('/sign-up', userSignUp, async (req, res) => {
@@ -36,10 +37,12 @@ router.post('/sign-up', userSignUp, async (req, res) => {
     const hash = bcrypt.hashSync(password, saltRounds);
     const newAccount = await User.create({ user_type, name, email, password: hash });
 
-    const token = generateJwt({id: newAccount.id});
-    const refreshToken = generateRefreshJwt({id: newAccount.id, version: newAccount.jwtVersion});
+    //const token = generateJwt({id: newAccount.id});
+    //const refreshToken = generateRefreshJwt({id: newAccount.id, version: newAccount.jwtVersion});
 
-    return res.jsonOK(newAccount, getMessage('user.signup.sucess'), { token, refreshToken });
+    return res.jsonOK(newAccount, getMessage('user.signup.sucess')
+    //, { token, refreshToken }
+    );
 });
 
 router.post('/refresh', async (req, res)=>{

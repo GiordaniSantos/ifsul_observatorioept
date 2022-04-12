@@ -1,4 +1,5 @@
 const express = require('express');
+const { Op } = require("sequelize");
 const { Article } = require('../models');
 
 const router = express.Router();
@@ -15,11 +16,28 @@ router.get('/:id', async (req, res)=>{
     return res.jsonOK(article);
 });
 
+// /article/pesqusiar?termo=abc
+router.get('/s/pesquisar', async (req, res) =>{
+
+    // TODO melhorar a segurança do 'termo'
+
+    const query = req.query.termo;
+
+    const articles = 
+        await Article.findAll(
+            {
+            where: {title: { [Op.substring]: query }},
+            order: [ ['title', 'ASC'] ]
+            }
+        );
+    return res.jsonOK(articles);
+});
+
 router.post('/', async (req, res) => {
 
-    const {authors, title, year, dissemination_vehicle, access_link} = req.body;
+    const {authors, title, year, dissemination_vehicle, access_link, curriculumId} = req.body;
 
-    const article = await Article.create({authors, title, year, dissemination_vehicle, access_link})
+    const article = await Article.create({authors, title, year, dissemination_vehicle, access_link, curriculumId})
 
     return res.jsonOK(article);
  });

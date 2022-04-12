@@ -24,5 +24,13 @@ module.exports = (sequelize, DataTypes) => {
         }
     }) 
 
+  Project.associate = (models) => {
+       Project.belongsTo(models.Curriculum, {foreignKey: 'curriculumId'})
+   };
+
+//   Curriculum.associate = (models) => {
+ //   Curriculum.hasMany(models.Project, {foreignKey: 'curriculumId'})
+  //  };
+
     return Project;
 };

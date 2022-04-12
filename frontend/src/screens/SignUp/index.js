@@ -6,7 +6,7 @@ import { getFormData } from '../../helpers/form';
 
 const SignUp = (props) => {
     const {signUp, account } = props;
-
+    
     const submitHandler = (e) => {
         e.preventDefault();
         const data = getFormData(e);   
@@ -14,33 +14,30 @@ const SignUp = (props) => {
     };
 
     if(account){
-        return <Redirect to="/management" />;
+        return <Redirect to="/Curriculum" />;
     } 
 
     return(
-        <div className="">
-            <h1>Cadastrar</h1>
+        <div id="conteudo" class="boxsimples">
+            <h1 class="titulo1">Cadastrar nova conta</h1>
             <div>
                 <form onSubmit={submitHandler}>
-                    <div className="">
                         <label>Nome</label>
                         <input type="text" name="name" />
-                    </div>
-                    <div className="">
+                    
                         <label>Email</label>
                         <input type="text" name="email" />
-                    </div>
-                    <div className="">
+                    
                         <label>Senha</label>
                         <input type="password" name="password" />
-                    </div>
-                    <div className="">
+                 <div>
+                     
                         <label>Confirmar Senha</label>
                         <input type="password" name="password_confirmation" />
-                    </div>
-                    <div>
-                        <button>Cadastrar</button>
-                    </div>
+                     </div>   
+
+                        <input type="submit" value="Cadastrar" />
+
                 </form>
                 <div>
                     <Link to='/'><button>Cancelar</button></Link>

@@ -1,5 +1,6 @@
 const express = require('express');
 const { Project } = require('../models');
+const { Op } = require("sequelize");
 
 const router = express.Router();
 
@@ -15,10 +16,28 @@ router.get('/:id', async (req, res)=>{
     return res.jsonOK(project);
 });
 
-router.post('/', async(req, res) =>{
-    const {title, description, members, financiers} = req.body;
+router.get('/s/pesquisar', async (req, res) =>{
 
-    const project = await Project.create({title, description, members, financiers})
+    // TODO melhorar a segurança do 'termo'
+
+    const query = req.query.termo;
+
+    const news = 
+        await Project.findAll(
+            {
+            where: {[Op.or]: [
+                {title: { [Op.substring]: query }},
+             {description: {[Op.substring]: query}}]} ,
+            order: [ ['title', 'ASC'] ]
+            }
+        );
+    return res.jsonOK(news);
+});
+
+router.post('/', async(req, res) =>{
+    const {title, description, members, financiers, curriculumId} = req.body;
+
+    const project = await Project.create({title, description, members, financiers, curriculumId})
 
     return res.jsonOK(project);
 });

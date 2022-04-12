@@ -22,19 +22,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING(1234),
                 allowNull: false,
             },
-            formation:{
-                type: DataTypes.STRING(1234),
-                allowNull: true,
-            },
-            curriculum:{
-                type: DataTypes.TEXT,
-                allowNull: true,
-            },
             associated_institution:{
-                type: DataTypes.STRING,
-                allowNull: true,
-            },
-            link_curriculum:{
                 type: DataTypes.STRING,
                 allowNull: true,
             },
@@ -42,8 +30,12 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 defaultValue: 0,
-            }
+            },
     });
+
+//    User.associate = (models) => {
+//       User.belongsTo(models.Curriculum, {foreignKey: 'userId'})
+ //   };
 
     User.prototype.toJSON = function() {
         const values = { ...this.get() };

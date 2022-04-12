@@ -15,6 +15,8 @@ const researchLineController = require('./controllers/researchLineController');
 const searchGroupController = require('./controllers/searchGroupController');
 const memberController = require('./controllers/memberController');
 const practicesController = require('./controllers/practicesController');
+const curriculumController = require('./controllers/curriculumController');
+const ClusterController = require('./controllers/ClusterController');
 
 const app = express();
 
@@ -39,6 +41,9 @@ app.use('/members', memberController);
 app.use('/practices', practicesController);
 app.use('/research_line', researchLineController);
 app.use('/search_group', searchGroupController);
+app.use('/curriculum', curriculumController);
+app.use('/cluster', ClusterController);
+
 
 app.get('/', (req, res)=>{
     return res.json('Api running...');

@@ -1,35 +1,36 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { getFormData } from '../../../helpers/form';
 import { newsCreate } from './NewsActions';
 import { connect } from 'react-redux';
-import { Form } from '@unform/web';
-import Input from '../../../components/Form/input';
 
 const CreateNew = ()=> {
+  
 
     const submitHandler = (e) => {
         e.preventDefault();
         const data = getFormData(e);   
+       
        newsCreate(data)
+       console.log(data)
     }
 
     return(
         <div id="conteudo" class="boxsimples">
             <div class="titulo1">Crie uma notícia</div>
             <div>
-                <Form onSubmit={submitHandler}>
+                <form onSubmit={submitHandler}>
                     <label for="authors">Autor(a)</label>
-                    <Input type="text" name="authors" />
+                    <input type="text" name="authors" />
                                         
                     <label>Título</label>
-                    <Input type="text" name="title" />
+                    <input type="text" name="title" />
                                         
                     <label for="descricao">Descrição</label>
-                    <Input id="descricao" name="description" rows="5" cols="33"/>
+                    <input type="text" id="descricao" name="description" rows="5" cols="33"/>
                     
-                    <Input type="submit" value="Cadastrar a notícia" />
+                    <input type="submit" name="submit" value="Cadastrar a notícia" />
                     
-                </Form>
+                </form>
             </div>
         </div>
        

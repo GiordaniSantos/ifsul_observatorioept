@@ -4,38 +4,50 @@ import { connect } from 'react-redux';
 import { signIn } from './SignInActions';
 import { getFormData } from '../../helpers/form';
 
+
+
+
 const SignIn = (props) => {
     const { signIn, account } = props;
 
+
+
+    
     if(account){
-        return <Redirect to="/management" />;
+        
+     //  return <Redirect to="/management"  />;
+       // return <Redirect to={`/Manage/Curriculum/edit/${account.user_id}`}  />;
+      // return <Redirect to="/Manage/Curriculum/create"  />;
+       return <Redirect to="/Curriculum"  />;
     } 
 
 
     const submitHandler = (e) => {
+       
         e.preventDefault();
-
+        
         const data = getFormData(e);
+        if(data.email === ""){
+            alert("Email está vazio!");
+        }
         signIn(data);
     };
 
 
     return(
-        <div className="">
-            <h1>Login</h1>
-            <div>
+        <div id="conteudo" class="boxsimples">
+            <h1 class="titulo1">Realizar Login</h1>
+            <div>   
                 <form onSubmit={submitHandler}>
-                    <div className="">
+                  
                         <label>Email</label>
                         <input type="text" name="email"/>
-                    </div>
-                    <div className="">
+                    
+
                         <label>Senha</label>
                         <input type="password" name="password"/>
-                    </div>
-                    <div>
-                        <button>Logar</button>
-                    </div>
+                   
+                        <input type="submit" value="login" />
                 </form>
                 <div>
                     <Link to='/'><button>Cancelar</button></Link>
@@ -46,7 +58,8 @@ const SignIn = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    return { account: state.signIn.account }
+    return { account: state.signIn.account,
+        curriculum: state.curriculum }
 };
 
 

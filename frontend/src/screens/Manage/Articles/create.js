@@ -4,15 +4,17 @@ import { articlesCreate } from './ArticlesActions';
 import { connect } from 'react-redux';
 
 
-const ArticleCreate = ({articlesCreate, article})=> {
+const ArticleCreate = ( props)=> {
+    const { account, curriculum } = props;
 
+    console.log(curriculum)
     const submitHandler = (e) => {
         e.preventDefault();
-        const data = getFormData(e);   
+        const data = getFormData(e); 
         articlesCreate(data)
     }
 
-    console.log(article)
+    
 
     return(
         <div id="conteudo" class="boxsimples">
@@ -39,6 +41,9 @@ const ArticleCreate = ({articlesCreate, article})=> {
                         <label>Link de acesso</label>
                         <input type="text" name="access_link" />
                     </div>
+                    <label>id do usuario/curriculo</label>
+                    <input type="text" name="curriculumId" value={account.user_id} />
+
                     <div>
                         <input type="submit" value="Cadastrar artigo" />
                     </div>
@@ -51,7 +56,9 @@ const ArticleCreate = ({articlesCreate, article})=> {
 }
 
 const mapStateToProps = (state) => {
-    return { article: state.article };
-};
+    return { article: state.article, 
+        account: state.signIn.account,
+    curriculum: state.curriculum  };
+}; 
 
 export default connect(mapStateToProps, {articlesCreate})(ArticleCreate);

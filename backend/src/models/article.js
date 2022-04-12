@@ -29,5 +29,17 @@ module.exports = (sequelize, DataTypes) => {
         }
     }) 
 
+    Article.associate = (models) => {
+        Article.belongsTo(models.Curriculum, {foreignKey: 'curriculumId'})
+    };
+/*
+    Curriculum.associate = (models) => {
+        Curriculum.hasMany(models.Article, {foreignKey: 'curriculumId'})
+    };
+
+    Curriculum.associate = (models) => {
+        Curriculum.hasMany(models.Article, {foreignKey: 'curriculumId'})
+    };
+*/
     return Article;
 };

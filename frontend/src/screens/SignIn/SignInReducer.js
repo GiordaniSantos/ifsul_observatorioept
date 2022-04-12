@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { setAccount, setToken, setRefreshToken } from '../../helpers/account';
-import { SIGN_IN } from './SignInActions';
+import { SIGN_IN, SIGN_OUT } from './SignInActions';
 
 const initialState = {
     account: null,
@@ -21,7 +21,10 @@ export default function(state = initialState, action) {
             if(token) setToken(token);
             if(refreshToken) setRefreshToken(refreshToken);
     
-            return { ...initialState, account };
+            return { ...state, account };
+        case SIGN_OUT: {
+            return { ...initialState, account: null };
+        }
         default:
             return state;
     }
